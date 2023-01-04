@@ -1,0 +1,678 @@
+@import './style.scss';
+@import './reset.scss';
+@import './mixin.scss';
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include responsive(desktop-screens) {
+    width: 1200px;
+    padding: 0;
+  }
+}
+
+.flexbox {
+  @include flex-box {
+    flex-direction: column;
+  }
+
+  @include responsive(desktop-screens) {
+    flex-direction: row;
+  }
+}
+
+.mobile-only {
+  display: block;
+
+  @include responsive(large-tablet-screens) {
+    display: none;
+  }
+}
+
+.desktop-only {
+  display: none;
+
+  @include responsive(desktop-screens) {
+    display: block;
+  }
+}
+
+.large-only {
+  display: none;
+
+  @include responsive(tablet-screens) {
+    display: block;
+  }
+}
+
+h3 { // 섹션 타이틀 (공통소스)
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  color: $color-main;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -20px;
+    width: 100%;
+    height: 10px;
+    border-radius: 4px;
+    background: $color-main;
+  }
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==================== header ==================== */
+
+header {
+  position: relative;
+  width: 100vw;
+  // background-color: aquamarine;
+
+  #home {
+    .logo {
+      position: absolute;
+      padding: 20px;
+
+      img {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+      }
+    }
+
+    .header-bg {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient($color-main, transparent);
+
+      .cloud {
+        position: absolute;
+        
+        img {
+          max-width: 30vw;
+        }
+      }
+
+      .cloud1 {
+        top: 400px;
+        right: -100px;
+        overflow: hidden;
+      }
+
+      .cloud2 {
+        top: -80px;
+        left: 60%;
+      }
+
+      .cloud3 {
+        top: 100px;
+      }
+    } // header-bg
+
+    nav {
+      display: none;
+
+      @include responsive(desktop-screens) {
+        display: block;
+      }
+
+      .gnb {
+        position: absolute;
+        top: 0; left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 80px;
+        background-color: $color-main;
+
+        li {
+          width: 160px;
+          margin-right: 1.2em;
+          text-align: center;
+          line-height: 80px;
+          font-weight: 500;
+
+          a:hover {
+            font-weight: 600;
+            color: $color-sub;
+          }
+        } // li
+      } // gnb
+    } // nav
+
+    .ham-icon {
+      position: absolute;
+      top: 30px; right: 30px;
+      cursor: pointer;
+
+      span {
+        width: 28px;
+        height: 4px;
+        border-radius: 4px;
+        background-color: #333;
+
+        &:nth-child(2) {
+          margin: 8px 0;
+        }
+      }
+    
+    } // ham-icon
+
+    .toggle-menu {
+      position: absolute;
+      top: 30px; right: 80px;
+      background-color: #333;
+
+      .close-btn {
+
+        span {
+          position: absolute;
+          width: 4px;
+          height: 24px;
+          border-radius: 4px;
+          background-color: $color-sub;
+
+          &:nth-child(2) {
+            margin: 0 8px;
+          }
+        }
+      } // close-btn
+    } // toggle-menu
+
+    .intro-slide-wrap {
+      width: 90%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      // background-color: pink;
+    } // intro-slide-wrap
+  } // #home
+} // header
+
+
+/* ==================== main ==================== */
+
+main {
+  margin: 200px 0;
+  line-height: 1.5em;
+
+  #about {
+    margin-bottom: $section-end;
+    text-align: center;
+
+    .about-me {
+      .flexbox {
+        @include flex-box {
+          justify-content: space-between;
+        }
+        
+        .me-emoticon {
+          position: relative;
+          margin-bottom: 40px;
+  
+          @include responsive(desktop-screens) {
+            width: 380px;
+            background-color: yellow;
+          }
+
+          img {
+            cursor: pointer;
+          }
+
+          .me-circle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 222px;
+            height: 222px;
+            padding: 70px 0;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            background: $color-main;
+          }
+        } // me-emoticon
+  
+        .me-introduce {
+          margin-bottom: 160px;
+          
+          @include responsive(desktop-screens) {
+            width: 680px;
+            text-align: left;
+            background-color: yellow;
+          }
+
+          strong {
+            font-size: $strong-text-L;
+          }
+        } // me-introduce
+      } // flexbox
+    } // about-me
+
+    .about-work {
+      .flexbox {
+        @include flex-box {
+          justify-content: space-between;
+        }
+
+        .about-work-title {
+          text-align: left;
+          font-size: $strong-text-S;
+          line-height: 2.6rem;
+          margin-bottom: 80px;
+  
+          @include responsive(desktop-screens) {
+            width: 380px;
+            padding: 0 80px;
+            font-size: 36px;
+            text-align: right;
+            // background-color: yellow;
+          }
+        } // about-work-title
+  
+        .about-work-content {
+          text-align: left;
+
+          @include responsive(desktop-screens) {
+            width: 680px;
+            text-align: left;
+            // background-color: yellow;
+          }
+  
+          .about-work1 {
+            margin-bottom: 40px;
+          }
+  
+          h4 {
+            margin-bottom: 12px;
+          }
+  
+        } // about-work-content
+      } // flexbox
+    } // about-work
+  } // #about
+
+  #skill {
+    position: relative;
+    margin-bottom: $section-end;
+    text-align: center;
+
+    .skill-bg {
+      position: relative;
+      background-color: $color-sub;
+      
+      @include responsive(desktop-screens) {
+        width: 100%;
+        height: auto;
+        // padding: 168px 0;
+      }
+
+      .grass {
+        position: relative;
+        // width: 100%;
+
+        img {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          transform: translateX(-50%);
+          object-fit: cover;
+          // background-color: #0065f4;
+
+          @include responsive(desktop-screens) {
+            max-height: 965.84px;
+          }
+          
+        }
+      } // grass
+
+      .track {
+        width: 100%;
+        padding: 168px 0;
+
+        img {
+          width: 900px;
+        }
+      } // track
+
+      .skill-info {
+        position: relative;
+        padding: 80px 4%;
+        border-radius: 20px;
+        // background-color: $color-sub;
+  
+        &::after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+  
+        @include responsive(desktop-screens) {
+          position: absolute;
+          bottom: 448px; left: 348px;
+          transform: translateX(-50%);
+          background: none;
+        }
+  
+        // skill-info 공통소스 시작
+        .info-box {
+          width: 100%;
+          height: 180px;
+          padding: 24px;
+          margin-bottom: 24px;
+          border-radius: 20px;
+          font-size: 16px;
+          background-color: rgba(252, 252, 252, 0.8);
+  
+          @include responsive (tablet-screens) {
+            width: 48%;
+            float: left;
+          }
+  
+          @include responsive (desktop-screens) {
+            position: absolute;
+            top: 0;
+            width: 480px;
+          }
+  
+          .flexbox {
+            @include flex-box {
+              flex-direction: row;
+              align-items: center;
+            }
+  
+            .icon-box {
+              height: 132px;
+              margin-right: 24px;
+              padding: 4px 0;
+              line-height: 1;
+              // background-color: pink;
+  
+              .img-box {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+                object-fit: cover;
+  
+                img {
+                  width: 100%;
+                }
+              } // img-box
+  
+              .skill-name {
+                font-size: 16px;
+                font-weight: 600;
+              }
+            } // icon-box
+  
+            .skill-des {
+              height: 132px;
+              padding: 4px 0;
+              text-align: left;
+              font-size: 16px;
+              // background-color: palegoldenrod;
+            }
+          } // flexbox
+        } // info-box
+  
+        .info-box1,
+        .info-box3,
+        .info-box5,
+        .info-box7,
+        .info-box9 {
+          @include responsive(tablet-screens) {
+            margin-right: 24px;
+          }
+        }
+        // skill-info 공통소스 끝 (올리기)
+  
+        .html {
+          // background-color: palegoldenrod;
+        }
+      } // skill-info
+    } // skill-bg
+
+
+    .skill-circle {
+      position: absolute;
+      top: 0; 
+
+      .circle {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        border-radius: 50%;
+        font-size: 16px;
+        font-weight: 600;
+        color: #eee;
+        line-height: 80px;
+      }
+
+      .cir-html {
+        top: -460px; left: 900px;
+        background-color: #f16529;
+      }
+      .cir-css {
+        top: -420px; left: 940px;
+        background-color: #0065f4;
+      }
+      .cir-sass {
+        top: -340px; left: 900px;
+        background-color: #cc6699;
+      }
+      .cir-bootstrap {
+        top: -400px; left: 200px;
+        background-color: #7952b3;
+      }
+      .cir-javascript {
+        top: -280px; left: 620px;
+        color: #666;
+        background-color: #ffdf00;
+      }
+      .cir-jquery {
+        top: -340px; left: 500px;
+        background-color: #0868ac;
+      }
+      .cir-react {
+        top: -300px; left: 400px;
+        background-color: #6ecff1;
+      }
+      .cir-photoshop {
+        top: -260px; left: 840px;
+        background-color: #31a8ff;
+      }
+      .cir-illust {
+        top: -340px; left: 800px;
+        background-color: #ff9a00;
+      }
+    } // skill-circle
+
+
+    
+
+
+  } // #skill
+
+  #portfolio {
+    text-align: center;
+
+    // pofol-box 공통소스 시작
+    .pofol-box {
+      width: 100%;
+      margin-bottom: 40px;
+
+      .flexbox {
+
+        @include responsive(tablet-screens) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .pofol-thumbnail {
+          position: relative;
+          width: 100%;
+          padding-bottom: 80px;
+          // background-color: #0065f4;
+
+          img {
+            width: 100%;
+            // background-color: lightcoral;
+
+            @include responsive(tablet-screens) {
+              width: 100%;
+            }
+          } // img
+
+          .modal-btn {
+            position: absolute;
+            bottom: 0;
+
+            button {
+              width: 160px;
+              height: 60px;
+              margin-right: 20px;
+              border-radius: 20px;
+              border: none;
+              font-size: $text-font-size;
+              cursor: pointer;
+              color: $body-bg;
+              background-color: $color-main;
+
+              &:hover {
+                color: $color-main;
+                background-color: $color-sub;
+              }
+            } // button
+          } // modal-btn
+        } // pofol-thumbnail
+
+        .pofol-info {
+          text-align: left;
+
+          @include responsive(tablet-screens) {
+            min-width: 46%;
+          }
+
+          .pofol-des {
+            font-size: 16px;
+          }
+
+          // .modal-btn {
+          //   margin-top: 20px;
+          //   button {
+          //     width: 160px;
+          //     height: 60px;
+          //     margin-right: 20px;
+          //     border-radius: 20px;
+          //     border: 4px solid $color-main;
+          //     font-size: $text-font-size;
+          //     cursor: pointer;
+          //     background-color: #fff;
+
+          //     &:hover {
+          //       color: #fff;
+          //       background-color: $color-main;
+          //     }
+              
+          //   }
+          // }
+        } // pofol-info
+      } // flexbox
+
+
+    } // pofol-box
+    // pofol-box 공통소스 끝
+
+
+  } // #portfolio
+
+
+
+} // main
+
+
+/* ==================== footer ==================== */
+
+footer {
+  position: relative;
+
+  .footer-bg {
+    position: relative;
+    padding: 80px 0;
+    background-color: $color-sub;
+    background: linear-gradient(transparent, $color-sub);
+
+    .contact {
+      text-align: center;
+
+      @include responsive(tablet-screens) {
+        font-size: 24px;
+      }
+
+      address {
+        margin: 24px 0 60px 0;
+        cursor: pointer;
+        font-size: 32px;
+
+        &:hover {
+          color: $color-main;
+          // 호버하면 밑줄 형광펜 애니메이션으로 바꾸기, Outlook기능 넣어보기 outlook은 시간 없으면 넘기기
+        }
+
+        @include responsive(tablet-screens) {
+          font-size: 48px;
+        }
+      } // address
+
+      .git,
+      .topbtn {
+        margin: 0 auto;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      } // git, topbtn 
+
+      .git {
+        max-width:48px;
+        max-height: 48px;
+        margin-bottom: 80px;
+      } // git
+
+      .topbtn {
+        width: 48px;
+        height: 48px;
+
+        &:hover {
+          filter: hue-rotate(60deg);
+        }
+      } // topbtn
+    } // contact
+  } // footer-bg
+
+  .copyright {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    vertical-align: center;
+    font-size: 14px;
+    color: #eee;
+    background: $color-main;
+  }
+} // footer

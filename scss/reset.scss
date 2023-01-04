@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font: $text-font-size $kor-font;
+    color: $font-color-defalt;
+    background-color: $body-bg;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: $font-color-defalt;
+}
+
+h1 {
+    font-size: 0;
+}
+
+h2 {
+    font-size: $title-font-size-L;
+}
+
+h3 {
+    font-size: $title-font-size-M;
+}
+
+h4 {
+    font-size: $title-font-size-S;
+}
+
+p {
+    font-size: 20px;
+}
+
+address {
+    font-style: inherit;
+}
+
+header,
+nav,
+main,
+article,
+section,
+footer {
+    display: block;
+}

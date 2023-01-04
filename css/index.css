@@ -1,0 +1,625 @@
+@charset "UTF-8";
+/* ========== 중단점 ========== */
+/* ========== 폰트 크기 ========== */
+/* ========== margin ========== */
+/* ========== 한.영 글꼴 ========== */
+/* ========== 색상 ========== */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font: 20px "Nanum Gothic", sans-serif, "맑은 고딕";
+  color: #333;
+  background-color: #fcfcfc;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+h1 {
+  font-size: 0;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 20px;
+}
+
+address {
+  font-style: inherit;
+}
+
+header,
+nav,
+main,
+article,
+section,
+footer {
+  display: block;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+    padding: 0;
+  }
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 1200px) {
+  .flexbox {
+    flex-direction: row;
+  }
+}
+
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+@media screen and (min-width: 1200px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+.large-only {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .large-only {
+    display: block;
+  }
+}
+
+h3 {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  color: #77addf;
+}
+h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 100%;
+  height: 10px;
+  border-radius: 4px;
+  background: #77addf;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==================== header ==================== */
+header {
+  position: relative;
+  width: 100vw;
+}
+header #home .logo {
+  position: absolute;
+  padding: 20px;
+}
+header #home .logo img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+header #home .header-bg {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#77addf, transparent);
+}
+header #home .header-bg .cloud {
+  position: absolute;
+}
+header #home .header-bg .cloud img {
+  max-width: 30vw;
+}
+header #home .header-bg .cloud1 {
+  top: 400px;
+  right: -100px;
+  overflow: hidden;
+}
+header #home .header-bg .cloud2 {
+  top: -80px;
+  left: 60%;
+}
+header #home .header-bg .cloud3 {
+  top: 100px;
+}
+header #home nav {
+  display: none;
+}
+@media screen and (min-width: 1200px) {
+  header #home nav {
+    display: block;
+  }
+}
+header #home nav .gnb {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  background-color: #77addf;
+}
+header #home nav .gnb li {
+  width: 160px;
+  margin-right: 1.2em;
+  text-align: center;
+  line-height: 80px;
+  font-weight: 500;
+}
+header #home nav .gnb li a:hover {
+  font-weight: 600;
+  color: #ddefc4;
+}
+header #home .ham-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+header #home .ham-icon span {
+  width: 28px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #333;
+}
+header #home .ham-icon span:nth-child(2) {
+  margin: 8px 0;
+}
+header #home .toggle-menu {
+  position: absolute;
+  top: 30px;
+  right: 80px;
+  background-color: #333;
+}
+header #home .toggle-menu .close-btn span {
+  position: absolute;
+  width: 4px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: #ddefc4;
+}
+header #home .toggle-menu .close-btn span:nth-child(2) {
+  margin: 0 8px;
+}
+header #home .intro-slide-wrap {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* ==================== main ==================== */
+main {
+  margin: 200px 0;
+  line-height: 1.5em;
+}
+main #about {
+  margin-bottom: 200px;
+  text-align: center;
+}
+main #about .about-me .flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+main #about .about-me .flexbox .me-emoticon {
+  position: relative;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 1200px) {
+  main #about .about-me .flexbox .me-emoticon {
+    width: 380px;
+    background-color: yellow;
+  }
+}
+main #about .about-me .flexbox .me-emoticon img {
+  cursor: pointer;
+}
+main #about .about-me .flexbox .me-emoticon .me-circle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 222px;
+  height: 222px;
+  padding: 70px 0;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  background: #77addf;
+}
+main #about .about-me .flexbox .me-introduce {
+  margin-bottom: 160px;
+}
+@media screen and (min-width: 1200px) {
+  main #about .about-me .flexbox .me-introduce {
+    width: 680px;
+    text-align: left;
+    background-color: yellow;
+  }
+}
+main #about .about-me .flexbox .me-introduce strong {
+  font-size: 50px;
+}
+main #about .about-work .flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+main #about .about-work .flexbox .about-work-title {
+  text-align: left;
+  font-size: 30px;
+  line-height: 2.6rem;
+  margin-bottom: 80px;
+}
+@media screen and (min-width: 1200px) {
+  main #about .about-work .flexbox .about-work-title {
+    width: 380px;
+    padding: 0 80px;
+    font-size: 36px;
+    text-align: right;
+  }
+}
+main #about .about-work .flexbox .about-work-content {
+  text-align: left;
+}
+@media screen and (min-width: 1200px) {
+  main #about .about-work .flexbox .about-work-content {
+    width: 680px;
+    text-align: left;
+  }
+}
+main #about .about-work .flexbox .about-work-content .about-work1 {
+  margin-bottom: 40px;
+}
+main #about .about-work .flexbox .about-work-content h4 {
+  margin-bottom: 12px;
+}
+main #skill {
+  position: relative;
+  margin-bottom: 200px;
+  text-align: center;
+}
+main #skill .skill-bg {
+  position: relative;
+  background-color: #ddefc4;
+}
+@media screen and (min-width: 1200px) {
+  main #skill .skill-bg {
+    width: 100%;
+    height: auto;
+  }
+}
+main #skill .skill-bg .grass {
+  position: relative;
+}
+main #skill .skill-bg .grass img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateX(-50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 1200px) {
+  main #skill .skill-bg .grass img {
+    max-height: 965.84px;
+  }
+}
+main #skill .skill-bg .track {
+  width: 100%;
+  padding: 168px 0;
+}
+main #skill .skill-bg .track img {
+  width: 900px;
+}
+main #skill .skill-bg .skill-info {
+  position: relative;
+  padding: 80px 4%;
+  border-radius: 20px;
+}
+main #skill .skill-bg .skill-info::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media screen and (min-width: 1200px) {
+  main #skill .skill-bg .skill-info {
+    position: absolute;
+    bottom: 448px;
+    left: 348px;
+    transform: translateX(-50%);
+    background: none;
+  }
+}
+main #skill .skill-bg .skill-info .info-box {
+  width: 100%;
+  height: 180px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: rgba(252, 252, 252, 0.8);
+}
+@media screen and (min-width: 768px) {
+  main #skill .skill-bg .skill-info .info-box {
+    width: 48%;
+    float: left;
+  }
+}
+@media screen and (min-width: 1200px) {
+  main #skill .skill-bg .skill-info .info-box {
+    position: absolute;
+    top: 0;
+    width: 480px;
+  }
+}
+main #skill .skill-bg .skill-info .info-box .flexbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main #skill .skill-bg .skill-info .info-box .flexbox .icon-box {
+  height: 132px;
+  margin-right: 24px;
+  padding: 4px 0;
+  line-height: 1;
+}
+main #skill .skill-bg .skill-info .info-box .flexbox .icon-box .img-box {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main #skill .skill-bg .skill-info .info-box .flexbox .icon-box .img-box img {
+  width: 100%;
+}
+main #skill .skill-bg .skill-info .info-box .flexbox .icon-box .skill-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+main #skill .skill-bg .skill-info .info-box .flexbox .skill-des {
+  height: 132px;
+  padding: 4px 0;
+  text-align: left;
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  main #skill .skill-bg .skill-info .info-box1,
+main #skill .skill-bg .skill-info .info-box3,
+main #skill .skill-bg .skill-info .info-box5,
+main #skill .skill-bg .skill-info .info-box7,
+main #skill .skill-bg .skill-info .info-box9 {
+    margin-right: 24px;
+  }
+}
+main #skill .skill-circle {
+  position: absolute;
+  top: 0;
+}
+main #skill .skill-circle .circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #eee;
+  line-height: 80px;
+}
+main #skill .skill-circle .cir-html {
+  top: -460px;
+  left: 900px;
+  background-color: #f16529;
+}
+main #skill .skill-circle .cir-css {
+  top: -420px;
+  left: 940px;
+  background-color: #0065f4;
+}
+main #skill .skill-circle .cir-sass {
+  top: -340px;
+  left: 900px;
+  background-color: #cc6699;
+}
+main #skill .skill-circle .cir-bootstrap {
+  top: -400px;
+  left: 200px;
+  background-color: #7952b3;
+}
+main #skill .skill-circle .cir-javascript {
+  top: -280px;
+  left: 620px;
+  color: #666;
+  background-color: #ffdf00;
+}
+main #skill .skill-circle .cir-jquery {
+  top: -340px;
+  left: 500px;
+  background-color: #0868ac;
+}
+main #skill .skill-circle .cir-react {
+  top: -300px;
+  left: 400px;
+  background-color: #6ecff1;
+}
+main #skill .skill-circle .cir-photoshop {
+  top: -260px;
+  left: 840px;
+  background-color: #31a8ff;
+}
+main #skill .skill-circle .cir-illust {
+  top: -340px;
+  left: 800px;
+  background-color: #ff9a00;
+}
+main #portfolio {
+  text-align: center;
+}
+main #portfolio .pofol-box {
+  width: 100%;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  main #portfolio .pofol-box .flexbox {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+main #portfolio .pofol-box .flexbox .pofol-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-bottom: 80px;
+}
+main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
+    width: 100%;
+  }
+}
+main #portfolio .pofol-box .flexbox .pofol-thumbnail .modal-btn {
+  position: absolute;
+  bottom: 0;
+}
+main #portfolio .pofol-box .flexbox .pofol-thumbnail .modal-btn button {
+  width: 160px;
+  height: 60px;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fcfcfc;
+  background-color: #77addf;
+}
+main #portfolio .pofol-box .flexbox .pofol-thumbnail .modal-btn button:hover {
+  color: #77addf;
+  background-color: #ddefc4;
+}
+main #portfolio .pofol-box .flexbox .pofol-info {
+  text-align: left;
+}
+@media screen and (min-width: 768px) {
+  main #portfolio .pofol-box .flexbox .pofol-info {
+    min-width: 46%;
+  }
+}
+main #portfolio .pofol-box .flexbox .pofol-info .pofol-des {
+  font-size: 16px;
+}
+
+/* ==================== footer ==================== */
+footer {
+  position: relative;
+}
+footer .footer-bg {
+  position: relative;
+  padding: 80px 0;
+  background-color: #ddefc4;
+  background: linear-gradient(transparent, #ddefc4);
+}
+footer .footer-bg .contact {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  footer .footer-bg .contact {
+    font-size: 24px;
+  }
+}
+footer .footer-bg .contact address {
+  margin: 24px 0 60px 0;
+  cursor: pointer;
+  font-size: 32px;
+}
+footer .footer-bg .contact address:hover {
+  color: #77addf;
+}
+@media screen and (min-width: 768px) {
+  footer .footer-bg .contact address {
+    font-size: 48px;
+  }
+}
+footer .footer-bg .contact .git,
+footer .footer-bg .contact .topbtn {
+  margin: 0 auto;
+}
+footer .footer-bg .contact .git img,
+footer .footer-bg .contact .topbtn img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+footer .footer-bg .contact .git {
+  max-width: 48px;
+  max-height: 48px;
+  margin-bottom: 80px;
+}
+footer .footer-bg .contact .topbtn {
+  width: 48px;
+  height: 48px;
+}
+footer .footer-bg .contact .topbtn:hover {
+  filter: hue-rotate(60deg);
+}
+footer .copyright {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  vertical-align: center;
+  font-size: 14px;
+  color: #eee;
+  background: #77addf;
+}/*# sourceMappingURL=index.css.map */

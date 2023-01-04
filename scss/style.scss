@@ -1,0 +1,38 @@
+/* ========== 중단점 ========== */
+$width-mobile: 320px;
+$width-tablet: 768px;
+$width-desktop: 1200px;
+
+/* ========== 폰트 크기 ========== */
+// em단위로 변경하기
+$title-font-size-L: 50px; // 큰 제목
+$title-font-size-M: 40px; // 작은 제목
+$title-font-size-S: 24px; // 본문 요약하는 제목
+$tab-font-size: 20px;
+$strong-text-L: 50px;
+$strong-text-M: 38px;
+$strong-text-S: 30px;
+$text-font-size: 20px;
+
+
+/* ========== margin ========== */
+$section-end: 200px;
+
+
+
+/* ========== 한.영 글꼴 ========== */
+$kor-font: 'Nanum Gothic', sans-serif, '맑은 고딕';
+$eng-font: 'Nanum Gothic', sans-serif, Arial;
+
+
+
+/* ========== 색상 ========== */
+$body-bg: #fcfcfc;
+$color-main: #77addf;
+$color-sub: #ddefc4;
+
+$font-color-defalt: #333;
+
+$black: #000;
+$white: #fff;
+$light-gray: #ccc;
