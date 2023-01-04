@@ -4,14 +4,14 @@ $width-tablet: 768px;
 $width-desktop: 1200px;
 
 /* ========== 폰트 크기 ========== */
-// em단위로 변경하기
-$title-font-size-L: 50px; // 큰 제목
-$title-font-size-M: 40px; // 작은 제목
-$title-font-size-S: 24px; // 본문 요약하는 제목
-$tab-font-size: 20px;
-$strong-text-L: 50px;
-$strong-text-M: 38px;
-$strong-text-S: 30px;
+// rem단위로 변경하기
+$title-font-size-L: 2.2rem; // 큰 제목
+$title-font-size-M: 1.6rem; // 작은 제목
+$title-font-size-S: 1.2rem; // 본문 요약하는 제목
+$tab-font-size: 1rem;
+$strong-text-L: 1.6rem;
+$strong-text-M: 1.4rem;
+$strong-text-S: 1.2rem;
 $text-font-size: 20px;
 
 

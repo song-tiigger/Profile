@@ -35,15 +35,15 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 2.2rem;
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 1.6rem;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 1.2rem;
 }
 
 p {
@@ -88,6 +88,11 @@ footer {
 .mobile-only {
   display: block;
 }
+@media screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
 
 .desktop-only {
   display: none;
@@ -131,6 +136,43 @@ body {
   overflow-x: hidden;
 }
 
+@-webkit-keyframes cloudLoop {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes cloudLoop {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@-webkit-keyframes textFlip {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
+@keyframes textFlip {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
 /* ==================== header ==================== */
 header {
   position: relative;
@@ -158,23 +200,15 @@ header #home .header-bg .cloud img {
 }
 header #home .header-bg .cloud1 {
   top: 400px;
-  right: -100px;
+  left: 0;
   overflow: hidden;
 }
 header #home .header-bg .cloud2 {
   top: -80px;
-  left: 60%;
+  left: 0;
 }
 header #home .header-bg .cloud3 {
   top: 100px;
-}
-header #home nav {
-  display: none;
-}
-@media screen and (min-width: 1200px) {
-  header #home nav {
-    display: block;
-  }
 }
 header #home nav .gnb {
   position: absolute;
@@ -208,34 +242,98 @@ header #home .ham-icon span {
   width: 28px;
   height: 4px;
   border-radius: 4px;
-  background-color: #333;
+  background-color: #fcfcfc;
 }
 header #home .ham-icon span:nth-child(2) {
   margin: 8px 0;
 }
-header #home .toggle-menu {
+header #home .mobile-nav-wrap {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fcfcfc;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+header #home .mobile-nav-wrap .closebtn {
   position: absolute;
   top: 30px;
-  right: 80px;
-  background-color: #333;
+  right: 30px;
+  cursor: pointer;
 }
-header #home .toggle-menu .close-btn span {
+header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .closebtn::after {
+  display: inline-block;
   position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: " ";
   width: 4px;
-  height: 24px;
+  height: 32px;
   border-radius: 4px;
-  background-color: #ddefc4;
+  background-color: #77addf;
+  cursor: pointer;
 }
-header #home .toggle-menu .close-btn span:nth-child(2) {
-  margin: 0 8px;
+header #home .mobile-nav-wrap .closebtn::before {
+  transform: rotate(45deg);
 }
-header #home .intro-slide-wrap {
+header #home .mobile-nav-wrap .closebtn::after {
+  transform: rotate(-45deg);
+}
+header #home .mobile-nav-wrap .mobile-nav {
+  position: relative;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+header #home .mobile-nav-wrap .mobile-nav li a {
+  font-size: 38px;
+  letter-spacing: 8px;
+  line-height: 100px;
+  font-weight: 600;
+}
+header #home .mobile-nav-wrap .mobile-nav li a:hover {
+  color: #77addf;
+  font-size: 34px;
+  transition: 0.2s;
+}
+header #home .intro-flip-wrap {
   width: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+header #home .intro-flip-wrap #textFlip {
+  position: relative;
+  height: calc(1.4rem + 8px);
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: 1.4rem;
+  overflow: hidden;
+}
+header #home .intro-flip-wrap #textFlip div {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header #home .intro-flip-wrap #textFlip .prev {
+  top: 40px;
+  transition: top 0.8s ease;
+}
+header #home .intro-flip-wrap #textFlip .current {
+  top: 0;
+  transition: top 0.8s ease;
+}
+header #home .intro-flip-wrap #textFlip .next {
+  top: -40px;
 }
 
 /* ==================== main ==================== */
@@ -288,7 +386,12 @@ main #about .about-me .flexbox .me-introduce {
   }
 }
 main #about .about-me .flexbox .me-introduce strong {
-  font-size: 50px;
+  font-size: 1.6rem;
+}
+@media screen and (min-width: 1200px) {
+  main #about .about-work {
+    margin-top: 160px;
+  }
 }
 main #about .about-work .flexbox {
   display: flex;
@@ -296,7 +399,7 @@ main #about .about-work .flexbox {
 }
 main #about .about-work .flexbox .about-work-title {
   text-align: left;
-  font-size: 30px;
+  font-size: 1.6rem;
   line-height: 2.6rem;
   margin-bottom: 80px;
 }
@@ -344,14 +447,19 @@ main #skill .skill-bg .grass {
 main #skill .skill-bg .grass img {
   position: absolute;
   top: 0;
-  width: 100%;
+  left: 50%;
   transform: translateX(-50%);
   -o-object-fit: cover;
      object-fit: cover;
 }
+@media screen and (min-width: 768px) {
+  main #skill .skill-bg .grass img {
+    max-height: 1180px;
+  }
+}
 @media screen and (min-width: 1200px) {
   main #skill .skill-bg .grass img {
-    max-height: 965.84px;
+    max-height: 965.24px;
   }
 }
 main #skill .skill-bg .track {
@@ -473,7 +581,7 @@ main #skill .skill-circle .cir-sass {
   background-color: #cc6699;
 }
 main #skill .skill-circle .cir-bootstrap {
-  top: -400px;
+  top: -420px;
   left: 200px;
   background-color: #7952b3;
 }
@@ -508,7 +616,7 @@ main #portfolio {
 }
 main #portfolio .pofol-box {
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 @media screen and (min-width: 768px) {
   main #portfolio .pofol-box .flexbox {
@@ -519,45 +627,77 @@ main #portfolio .pofol-box {
 main #portfolio .pofol-box .flexbox .pofol-thumbnail {
   position: relative;
   width: 100%;
-  padding-bottom: 80px;
 }
 main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
   width: 100%;
-}
-@media screen and (min-width: 768px) {
-  main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
-    width: 100%;
-  }
-}
-main #portfolio .pofol-box .flexbox .pofol-thumbnail .modal-btn {
-  position: absolute;
-  bottom: 0;
-}
-main #portfolio .pofol-box .flexbox .pofol-thumbnail .modal-btn button {
-  width: 160px;
-  height: 60px;
-  margin-right: 20px;
-  border-radius: 20px;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #fcfcfc;
-  background-color: #77addf;
-}
-main #portfolio .pofol-box .flexbox .pofol-thumbnail .modal-btn button:hover {
-  color: #77addf;
-  background-color: #ddefc4;
+  background-color: #0065f4;
 }
 main #portfolio .pofol-box .flexbox .pofol-info {
   text-align: left;
 }
 @media screen and (min-width: 768px) {
   main #portfolio .pofol-box .flexbox .pofol-info {
-    min-width: 46%;
+    text-align: unset;
+    background-color: #cc6699;
   }
 }
+main #portfolio .pofol-box .flexbox .pofol-info > div {
+  font-size: 1.2rem;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .pofol-title {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
 main #portfolio .pofol-box .flexbox .pofol-info .pofol-des {
+  margin-top: 10px;
   font-size: 16px;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .modal-btn {
+  display: flex;
+  margin-top: 20px;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button {
+  width: 128px;
+  height: 48px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fcfcfc;
+  background-color: #77addf;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:last-child {
+  margin-left: 24px;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:hover {
+  color: #77addf;
+  background-color: #ddefc4;
+}
+@media screen and (min-width: 768px) {
+  main #portfolio .left {
+    text-align: left;
+  }
+  main #portfolio .left .pofol-thumbnail {
+    margin-right: 20px;
+  }
+  main #portfolio .right {
+    text-align: right;
+  }
+  main #portfolio .right .pofol-thumbnail {
+    margin-left: 20px;
+    order: 2;
+  }
+  main #portfolio .right .pofol-info {
+    order: 1;
+    text-align: right;
+  }
+  main #portfolio .right .modal-btn {
+    justify-content: right;
+  }
+  main #portfolio .right .modal-btn button {
+    margin-right: 0;
+    margin-left: 24px;
+  }
 }
 
 /* ==================== footer ==================== */

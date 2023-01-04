@@ -26,7 +26,7 @@
 .mobile-only {
   display: block;
 
-  @include responsive(large-tablet-screens) {
+  @include responsive(tablet-screens) {
     display: none;
   }
 }
@@ -71,6 +71,31 @@ body {
   overflow-x: hidden;
 }
 
+@keyframes cloudLoop {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes textFlip {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
+
+
+
 /* ==================== header ==================== */
 
 header {
@@ -105,27 +130,26 @@ header {
 
       .cloud1 {
         top: 400px;
-        right: -100px;
+        left: 0;
         overflow: hidden;
+        // animation: cloudLoop 4s infinite;
       }
 
       .cloud2 {
         top: -80px;
-        left: 60%;
+        left: 0;
+        // animation: cloudLoop 4s infinite;
+
       }
 
       .cloud3 {
         top: 100px;
+        // animation: cloudLoop 4s infinite;
+
       }
     } // header-bg
 
     nav {
-      display: none;
-
-      @include responsive(desktop-screens) {
-        display: block;
-      }
-
       .gnb {
         position: absolute;
         top: 0; left: 50%;
@@ -155,48 +179,119 @@ header {
       position: absolute;
       top: 30px; right: 30px;
       cursor: pointer;
+      // background-color: rebeccapurple;
 
       span {
         width: 28px;
         height: 4px;
         border-radius: 4px;
-        background-color: #333;
+        // background-color: #333;
+        background-color: $body-bg;
 
         &:nth-child(2) {
           margin: 8px 0;
         }
       }
-    
     } // ham-icon
 
-    .toggle-menu {
-      position: absolute;
-      top: 30px; right: 80px;
-      background-color: #333;
+    .mobile-nav-wrap {
+      position: fixed;
+      height: 100%;
+      width: 0;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: $body-bg;
+      overflow-x: hidden;
+      transition: 0.5s;
 
-      .close-btn {
+      .closebtn {
+        position: absolute;
+        top: 30px; right: 30px;
+        cursor: pointer;
 
-        span {
+        &::before,
+        &::after {
+          display: inline-block;
           position: absolute;
+          top: 0; left: 50%; 
+          transform: translate(-50%, -50%);
+          content: ' ';
           width: 4px;
-          height: 24px;
+          height: 32px;
           border-radius: 4px;
-          background-color: $color-sub;
+          background-color: $color-main;
+          cursor: pointer;
+        }
 
-          &:nth-child(2) {
-            margin: 0 8px;
-          }
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
         }
       } // close-btn
-    } // toggle-menu
 
-    .intro-slide-wrap {
+      .mobile-nav {
+        position: relative;
+        top: 50%;
+        transform: translateY(-60%);
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+
+        li {
+
+          a {
+            font-size: 38px;
+            letter-spacing: 8px;
+            line-height: 100px;
+            font-weight: 600;
+
+            &:hover {
+              color: $color-main;
+              font-size: 34px;
+              transition: 0.2s;
+            }
+          } // a
+        } // li
+      } // mobile-nav
+    } // mobile-nav-wrap
+
+    .intro-flip-wrap {
       width: 90%;
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      // background-color: pink;
+      
+      #textFlip {
+        position: relative;
+        height: calc($strong-text-M + 8px);
+        margin: 20px 0;
+        font-weight: 600;
+        font-size: $strong-text-M;
+        overflow: hidden;
+
+        div {
+          position: absolute;
+          top: -40px; left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .prev{
+          top: 40px;
+          transition: top 0.8s ease;
+        }
+        .current{
+          top: 0;
+          transition: top 0.8s ease;
+        }
+        .next{
+          top: -40px
+        }
+      }
     } // intro-slide-wrap
   } // #home
 } // header
@@ -263,6 +358,10 @@ main {
     } // about-me
 
     .about-work {
+      @include responsive(desktop-screens) {
+        margin-top: 160px;
+      }
+
       .flexbox {
         @include flex-box {
           justify-content: space-between;
@@ -270,7 +369,7 @@ main {
 
         .about-work-title {
           text-align: left;
-          font-size: $strong-text-S;
+          font-size: $strong-text-L;
           line-height: 2.6rem;
           margin-bottom: 80px;
   
@@ -305,6 +404,7 @@ main {
     } // about-work
   } // #about
 
+
   #skill {
     position: relative;
     margin-bottom: $section-end;
@@ -317,7 +417,6 @@ main {
       @include responsive(desktop-screens) {
         width: 100%;
         height: auto;
-        // padding: 168px 0;
       }
 
       .grass {
@@ -326,16 +425,17 @@ main {
 
         img {
           position: absolute;
-          top: 0;
-          width: 100%;
+          top: 0; left: 50%;
           transform: translateX(-50%);
           object-fit: cover;
-          // background-color: #0065f4;
+
+          @include responsive(tablet-screens) {
+            max-height: 1180px;
+          }
 
           @include responsive(desktop-screens) {
-            max-height: 965.84px;
+            max-height: 965.24px;
           }
-          
         }
       } // grass
 
@@ -438,13 +538,9 @@ main {
           }
         }
         // skill-info 공통소스 끝 (올리기)
-  
-        .html {
-          // background-color: palegoldenrod;
-        }
+
       } // skill-info
     } // skill-bg
-
 
     .skill-circle {
       position: absolute;
@@ -475,7 +571,7 @@ main {
         background-color: #cc6699;
       }
       .cir-bootstrap {
-        top: -400px; left: 200px;
+        top: -420px; left: 200px;
         background-color: #7952b3;
       }
       .cir-javascript {
@@ -500,12 +596,8 @@ main {
         background-color: #ff9a00;
       }
     } // skill-circle
-
-
-    
-
-
   } // #skill
+
 
   #portfolio {
     text-align: center;
@@ -513,10 +605,9 @@ main {
     // pofol-box 공통소스 시작
     .pofol-box {
       width: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 100px;
 
       .flexbox {
-
         @include responsive(tablet-screens) {
           flex-direction: row;
           justify-content: space-between;
@@ -525,32 +616,55 @@ main {
         .pofol-thumbnail {
           position: relative;
           width: 100%;
-          padding-bottom: 80px;
-          // background-color: #0065f4;
 
           img {
             width: 100%;
-            // background-color: lightcoral;
-
-            @include responsive(tablet-screens) {
-              width: 100%;
-            }
+            background-color: #0065f4;
           } // img
+        } // pofol-thumbnail
+
+
+        .pofol-info {
+          text-align: left;
+
+          @include responsive(tablet-screens) {
+            // flex 속성 비율 지정하는 법 공부해서 적용하기 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            text-align: unset;
+            background-color: #cc6699;
+          }
+
+          & > div {
+            font-size: $title-font-size-S;
+          }
+
+          .pofol-title {
+            margin-top: 10px;
+            font-size: $title-font-size-M;
+          }
+
+          .pofol-des {
+            margin-top: 10px;
+            font-size: 16px;
+          }
 
           .modal-btn {
-            position: absolute;
-            bottom: 0;
-
+            display: flex;
+            margin-top: 20px;
+  
             button {
-              width: 160px;
-              height: 60px;
-              margin-right: 20px;
+              width: 128px;
+              height: 48px;
+              // margin-right: 24px;
               border-radius: 20px;
               border: none;
-              font-size: $text-font-size;
+              font-size: 16px;
               cursor: pointer;
               color: $body-bg;
               background-color: $color-main;
+
+              &:last-child {
+                margin-left: 24px;
+              }
 
               &:hover {
                 color: $color-main;
@@ -558,44 +672,43 @@ main {
               }
             } // button
           } // modal-btn
-        } // pofol-thumbnail
-
-        .pofol-info {
-          text-align: left;
-
-          @include responsive(tablet-screens) {
-            min-width: 46%;
-          }
-
-          .pofol-des {
-            font-size: 16px;
-          }
-
-          // .modal-btn {
-          //   margin-top: 20px;
-          //   button {
-          //     width: 160px;
-          //     height: 60px;
-          //     margin-right: 20px;
-          //     border-radius: 20px;
-          //     border: 4px solid $color-main;
-          //     font-size: $text-font-size;
-          //     cursor: pointer;
-          //     background-color: #fff;
-
-          //     &:hover {
-          //       color: #fff;
-          //       background-color: $color-main;
-          //     }
-              
-          //   }
-          // }
         } // pofol-info
       } // flexbox
-
-
     } // pofol-box
     // pofol-box 공통소스 끝
+
+    @include responsive(tablet-screens) {
+      .left {
+        text-align: left;
+
+        .pofol-thumbnail {
+          margin-right: 20px;
+        }
+      } // left
+
+      .right {
+        text-align: right;
+
+        .pofol-thumbnail {
+          margin-left: 20px;
+          order: 2;
+        }
+
+        .pofol-info {
+          order: 1;
+          text-align: right;
+        }
+
+        .modal-btn {
+          justify-content: right;
+
+          button {
+            margin-right: 0;
+            margin-left: 24px;
+          }
+        }
+      } // right
+    } // responsive - left&right 레이아웃 설정
 
 
   } // #portfolio

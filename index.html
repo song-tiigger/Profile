@@ -17,16 +17,20 @@
       <section id="home">
         <h1>하정</h1>
         <div class="logo">
-          <a class="mobile-only" href="./index.html"><img src="./images/flag.png" alt=""></a>
+          <a class="mobile-only" href="./index.html"><img src="./images/flag.png" alt="ㅣlogo"></a>
         </div>
 
         <div class="header-bg">
           <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
           <div class="cloud cloud2"><img src="./images/cloud2.png" alt=""></div>
           <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div>
+
+          <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
+          <div class="cloud cloud2"><img src="./images/cloud2.png" alt=""></div>
+          <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div>
         </div>
 
-        <nav>
+        <nav class="large-only">
           <ul class="gnb"> <!-- large-only -->
             <li><a href="">HOME</a></li>
             <li><a href="">ABOUT</a></li>
@@ -36,38 +40,37 @@
         </nav>
 
         <div class="mobile-only">
-          <div class="ham-icon">
-            <!-- <span class="mobile-only"></span>
+          <div class="ham-icon" onclick="openMobileNav()">
             <span class="mobile-only"></span>
-            <span class="mobile-only"></span> -->
-            <span></span>
-            <span></span>
-            <span></span>  
-            <ul class="toggle-menu-wrap">
-              <li><a href="">HOME</a></li>
-              <li><a href="">ABOUT</a></li>
-              <li><a href="">SKILL</a></li>
-              <li><a href="">PORTFOLIO</a></li>
-            </ul>
-
+            <span class="mobile-only"></span>
+            <span class="mobile-only"></span>
           </div>
-  
-          <div class="toggle-menu">
-            <div class="close-btn">
-              <!-- <span class="mobile-only"></span>
-              <span class="mobile-only"></span>
-              <span class="mobile-only"></span> -->
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+
+          <div id="mobileNav" class="mobile-nav-wrap">
+            <!-- <div class="closebtn" onclick="closeMobileNav()">&times;</div> -->
+            
+            <div class="closebtn" onclick="closeMobileNav()"></div>
+              
+            <ul class="mobile-nav">
+              <li><a href="#home">HOME</a></li>
+              <li><a href="#about">ABOUT</a></li>
+              <li><a href="#skill">SKILL</a></li>
+              <li><a href="#portfolio">PORTFOLIO</a></li>
+            </ul>
           </div>
         </div> <!-- mobile-only -->
 
-        <div class="intro-slide-wrap">
+        <div class="intro-flip-wrap">
           <h2>안녕하세요,</h2>
-          <div id="text-slide">~한</div>
-          <h2>송하정 입니다.</h2>
+          <div id="textFlip">
+            <!-- <div class="current">😊</div> -->
+            <div class="current">짱</div>
+
+            <div class="next">성실한</div>
+            <div>책임감있는</div>
+            <div class="prev">긍정적인</div>
+          </div>
+          <h2>ㅇㅇㅇ 입니다.</h2>
         </div>
       </section> <!-- home -->
     </header>
@@ -87,7 +90,7 @@
               </div> 
   
               <div class="me-introduce">
-                <div>안녕하세요,<strong>웹 개발자 송하정</strong>입니다.</div>
+                <div>안녕하세요, <strong>웹 개발자 송하정</strong>입니다.</div>
                 <div>소개하기1문단</div>
                 <div>소개하기2문단</div>
               </div>
@@ -129,7 +132,7 @@
         <h3>SKILL</h3>
         <div class="skill-bg">
           <div class="grass">
-            <img src="./images/grass.png" alt="">
+            <img class="large-only" src="./images/grass.png" alt="">
           </div>
 
           <div class="container desktop-only">
@@ -276,8 +279,6 @@
           </div>
         </div> 
 
-
-
       </section> <!-- skill -->
 
 
@@ -289,23 +290,18 @@
             <div class="flexbox">
               <div class="pofol-thumbnail">
                 <img src="images/safariMockup1.png" alt="">
+              </div> <!-- pofol-thumbnail -->
 
-                <div class="modal-btn">
-                  <button>디자인 가이드</button>
-                  <button>자세히 보기</button>
-                </div>
-              </div>
               <div class="pofol-info">
                 <div>01</div>
                 <div class="pofol-title">민음사</div>
                 <div class="pofol-des">
-                  홈페이지 리뉴얼을 주제로 작업한 개인 프로젝트입니다. <br>
-                  
+                  홈페이지 리뉴얼을 주제로 작업한 개인 프로젝트입니다.
                 </div>
-                <!-- <div class="modal-btn">
+                <div class="modal-btn">
                   <button>디자인 가이드</button>
                   <button>자세히 보기</button>
-                </div> -->
+                </div>
               </div> <!-- pofol-info -->
             </div> <!-- flexbox -->
           </div> <!-- pofol-box1 -->
@@ -319,9 +315,9 @@
                 <div>02</div>
                 <div class="pofol-title">블루스퀘어</div>
                 <div class="pofol-des">
-                  반응형으로 제작한 리뉴얼 웹사이트 입니다. <br>
-                  조별 프로젝트로 진행된 작업이며, <br>
-                  홈페이지에서 대관안내, 좌석배치도, 문화공간 메뉴의 페이지를 맡아서 제작했습니다.
+                  반응형으로 제작한 리뉴얼 웹사이트 입니다.
+                  조별 프로젝트로 진행된 작업이며,
+                  홈페이지의 메뉴에서 <strong>대관안내, 좌석배치도, 문화공간</strong> 페이지를 맡아서 제작했습니다.
                 </div>
                 <div class="modal-btn">
                   <button>디자인 가이드</button>
@@ -340,7 +336,7 @@
                 <div>03</div>
                 <div class="pofol-title">카페 키오스크</div>
                 <div class="pofol-des">
-                  카페의 무인 계산대를 재현해보았습니다. <br>
+                  카페의 무인 계산대를 재현해보았습니다.
                   메뉴 추가, 수량 확인, 현금 지불 및 거스름돈 계산이 가능합니다.
                 </div>
                 <div class="modal-btn">
