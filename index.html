@@ -17,17 +17,36 @@
       <section id="home">
         <h1>하정</h1>
         <div class="logo">
-          <a class="mobile-only" href="./index.html"><img src="./images/flag.png" alt="ㅣlogo"></a>
+          <a class="mobile-only" href="./index.html"><img src="./images/flag.png" alt="logo"></a>
         </div>
 
         <div class="header-bg">
-          <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
+          <!-- <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
           <div class="cloud cloud2"><img src="./images/cloud2.png" alt=""></div>
-          <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div>
+          <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div> -->
 
-          <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
-          <div class="cloud cloud2"><img src="./images/cloud2.png" alt=""></div>
-          <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div>
+          <div class="cloud-animation cloud-animation1">
+            <div class="cloud-wrap">
+              <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
+              <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
+            </div>
+          </div>
+          <div class="cloud-animation cloud-animation2">
+            <div class="cloud-wrap">
+              <div class="cloud cloud2"><img src="./images/cloud2.png" alt=""></div>
+              <div class="cloud cloud1"><img src="./images/cloud2.png" alt=""></div>
+            </div>
+          </div>
+          <div class="cloud-animation cloud-animation3">
+            <div class="cloud-wrap">
+              <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div>
+              <div class="cloud cloud1"><img src="./images/cloud3.png" alt=""></div>
+            </div>
+          </div>
+          
+
+
+
         </div>
 
         <nav class="large-only">
@@ -60,13 +79,25 @@
           </div>
         </div> <!-- mobile-only -->
 
-        <div class="intro-slide-wrap">
+        <div class="intro-flip-wrap">
+
           <h2>안녕하세요,</h2>
-          <div id="text-slide">~한</div>
-          <h2>송하정 입니다.</h2>
-        </div>
+
+          <div id="textFlip">
+            <div class="text-wrap">
+                <!-- <div class="current">😊</div> -->
+                <div class="current">짱</div>
+                <div class="next">성실한</div>
+                <div>책임감 있는</div>
+                <div class="prev">긍정적인</div>
+            </div>
+          </div> <!-- textFlip -->
+
+          <h2>ㅇㅇㅇ 입니다.</h2>
+
+        </div> <!-- intro-flip-wrap -->
       </section> <!-- home -->
-    </header>
+    </header> <!-- header -->
 
     <main>
       <section id="about">
@@ -74,9 +105,9 @@
         <div class="container">
           <div class="about-me">
             <div class="flexbox">
-              <div class="me-emoticon">
-                <img src="./images/me-emoticon.png" alt="">
-                <div class="me-circle">
+              <div class="me-emoticon flip">
+                <img class="front" src="./images/me-emoticon.png" alt="">
+                <div class="me-circle back">
                   010-5113-5826 <br>
                   applej07@naver.com
                 </div>

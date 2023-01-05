@@ -82,6 +82,18 @@ body {
   }
 }
 
+@keyframes textFlip {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
+
 
 
 /* ==================== header ==================== */
@@ -89,6 +101,7 @@ body {
 header {
   position: relative;
   width: 100vw;
+
   // background-color: aquamarine;
 
   #home {
@@ -101,41 +114,83 @@ header {
         height: 60px;
         cursor: pointer;
       }
-    }
+    } // logo
 
     .header-bg {
       width: 100%;
       height: 100vh;
       background: linear-gradient($color-main, transparent);
 
-      .cloud {
-        position: absolute;
+
+
+      // cloud 애니메이션 ver1 시작
+      // .cloud {
+      //   position: absolute;
         
-        img {
-          max-width: 30vw;
-        }
+      //   img {
+      //     max-width: 30vw;
+      //   }
 
-      }
+      // }
 
-      .cloud1 {
-        top: 400px;
-        left: 0;
+      // .cloud1 {
+      //   top: 400px;
+      //   left: 0;
+      //   overflow: hidden;
+      //   // animation: cloudLoop 4s infinite;
+      // }
+
+      // .cloud2 {
+      //   top: -80px;
+      //   left: 0;
+      //   // animation: cloudLoop 4s infinite;
+
+      // }
+
+      // .cloud3 {
+      //   top: 100px;
+      //   // animation: cloudLoop 4s infinite;
+      // }
+      // cloud 애니메이션 ver1 끝
+
+
+      // cloud 애니메이션 ver2 시작
+      .cloud-animation {
+        width: 100%; height: 280px;
         overflow: hidden;
-        // animation: cloudLoop 4s infinite;
+        margin-bottom: 20px;
+        // background-color: pink;
+        z-index: 0;
+        
+        .cloud-wrap {
+          display: flex;
+          width: 2240px; // 280px * 8개
+          // height: 200px;
+          // background-color: #ff9a00;
+          
+          .cloud {
+            width: 100%;
+            margin-right: 20px;
+            // background-color: #cc6699;
+
+            img {
+              max-width: 30vw;
+            }
+          } // cloud 
+        } // cloud-wrap
       }
 
-      .cloud2 {
-        top: -80px;
-        left: 0;
-        // animation: cloudLoop 4s infinite;
 
-      }
 
-      .cloud3 {
-        top: 100px;
-        // animation: cloudLoop 4s infinite;
 
-      }
+
+      // cloud 애니메이션 ver2 끝
+
+
+
+
+
+
     } // header-bg
 
     nav {
@@ -190,7 +245,7 @@ header {
       z-index: 1;
       top: 0;
       left: 0;
-      background-color: rgba(252, 252, 252, 0.9);
+      background-color: $body-bg;
       overflow-x: hidden;
       transition: 0.5s;
 
@@ -231,35 +286,67 @@ header {
         margin-top: 30px;
 
         li {
-          & + & {
-            margin-right: 600px;
-          }
 
           a {
             font-size: 38px;
-            font-weight: 600;
-            text-shadow: -2px 0 $color-main, 0 2px $color-main, 2px 0 $color-main, 0 -2px $color-main;
             letter-spacing: 8px;
             line-height: 100px;
-            color: transparent;
+            font-weight: 600;
 
             &:hover {
-              color: $body-bg;
-              font-weight: 400;
-              font-size: 32px;
+              color: $color-main;
+              font-size: 34px;
               transition: 0.2s;
             }
-          }
+          } // a
         } // li
       } // mobile-nav
     } // mobile-nav-wrap
 
-    .intro-slide-wrap {
-      width: 90%;
+    .intro-flip-wrap {
       position: absolute;
+      width: 90%;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+      
+      #textFlip {
+        position: relative;
+        width: 200px;
+        height: calc($strong-text-M + 8px);
+        margin: 20px auto;
+        font-weight: 600;
+        font-size: $strong-text-M;
+        // background-color: #eee;
+
+        .text-wrap {
+          position: relative;
+          width: auto;
+          height: 100%;
+          margin: 0 auto;
+          overflow: hidden;
+
+          div {
+            position: absolute;
+            top: -40px; left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            margin-bottom: 4px;
+          }
+
+          .prev{
+            top: -40px;
+            transition: top 1s cubic-bezier(.15,.17,.41,.95);
+          }
+          .current{
+            top: 0;
+            transition: top 1s cubic-bezier(.15,.17,.41,.95);
+          }
+          .next{
+            top: 40px
+          }
+        } // text-wrap   
+      } // #textFlip
     } // intro-slide-wrap
   } // #home
 } // header
@@ -306,7 +393,27 @@ main {
             font-size: 16px;
             cursor: pointer;
             background: $color-main;
+
+            transform-style: preserve-3d;
+            visibility: hidden;
+            transition: all 2s;
           }
+
+          // *************************************
+          // .flip {
+
+          //   .front {
+
+          //     transform:rotateY(0deg)
+
+          //   }
+
+          //   .back {
+          //     // transform:rotateY(180deg)
+              
+          //   }
+
+          // }
         } // me-emoticon
   
         .me-introduce {

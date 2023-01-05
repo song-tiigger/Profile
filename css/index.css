@@ -153,6 +153,26 @@ body {
     transform: translate3d(100%, 0, 0);
   }
 }
+@-webkit-keyframes textFlip {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
+@keyframes textFlip {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50px);
+  }
+}
 /* ==================== header ==================== */
 header {
   position: relative;
@@ -172,23 +192,23 @@ header #home .header-bg {
   height: 100vh;
   background: linear-gradient(#77addf, transparent);
 }
-header #home .header-bg .cloud {
-  position: absolute;
-}
-header #home .header-bg .cloud img {
-  max-width: 30vw;
-}
-header #home .header-bg .cloud1 {
-  top: 400px;
-  left: 0;
+header #home .header-bg .cloud-animation {
+  width: 100%;
+  height: 280px;
   overflow: hidden;
+  margin-bottom: 20px;
+  z-index: 0;
 }
-header #home .header-bg .cloud2 {
-  top: -80px;
-  left: 0;
+header #home .header-bg .cloud-animation .cloud-wrap {
+  display: flex;
+  width: 2240px;
 }
-header #home .header-bg .cloud3 {
-  top: 100px;
+header #home .header-bg .cloud-animation .cloud-wrap .cloud {
+  width: 100%;
+  margin-right: 20px;
+}
+header #home .header-bg .cloud-animation .cloud-wrap .cloud img {
+  max-width: 30vw;
 }
 header #home nav .gnb {
   position: absolute;
@@ -234,7 +254,7 @@ header #home .mobile-nav-wrap {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgba(252, 252, 252, 0.9);
+  background-color: #fcfcfc;
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -271,30 +291,58 @@ header #home .mobile-nav-wrap .mobile-nav {
   text-align: center;
   margin-top: 30px;
 }
-header #home .mobile-nav-wrap .mobile-nav li + header #home .mobile-nav-wrap .mobile-nav li {
-  margin-right: 600px;
-}
 header #home .mobile-nav-wrap .mobile-nav li a {
   font-size: 38px;
-  font-weight: 600;
-  text-shadow: -2px 0 #77addf, 0 2px #77addf, 2px 0 #77addf, 0 -2px #77addf;
   letter-spacing: 8px;
   line-height: 100px;
-  color: transparent;
+  font-weight: 600;
 }
 header #home .mobile-nav-wrap .mobile-nav li a:hover {
-  color: #fcfcfc;
-  font-weight: 400;
-  font-size: 32px;
+  color: #77addf;
+  font-size: 34px;
   transition: 0.2s;
 }
-header #home .intro-slide-wrap {
-  width: 90%;
+header #home .intro-flip-wrap {
   position: absolute;
+  width: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+header #home .intro-flip-wrap #textFlip {
+  position: relative;
+  width: 200px;
+  height: calc(1.4rem + 8px);
+  margin: 20px auto;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+header #home .intro-flip-wrap #textFlip .text-wrap {
+  position: relative;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+header #home .intro-flip-wrap #textFlip .text-wrap div {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  margin-bottom: 4px;
+}
+header #home .intro-flip-wrap #textFlip .text-wrap .prev {
+  top: -40px;
+  transition: top 1s cubic-bezier(0.15, 0.17, 0.41, 0.95);
+}
+header #home .intro-flip-wrap #textFlip .text-wrap .current {
+  top: 0;
+  transition: top 1s cubic-bezier(0.15, 0.17, 0.41, 0.95);
+}
+header #home .intro-flip-wrap #textFlip .text-wrap .next {
+  top: 40px;
 }
 
 /* ==================== main ==================== */
@@ -335,6 +383,9 @@ main #about .about-me .flexbox .me-emoticon .me-circle {
   font-size: 16px;
   cursor: pointer;
   background: #77addf;
+  transform-style: preserve-3d;
+  visibility: hidden;
+  transition: all 2s;
 }
 main #about .about-me .flexbox .me-introduce {
   margin-bottom: 160px;
