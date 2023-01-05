@@ -1,5 +1,5 @@
 window.onload = function() {
-    // 자동 실행
+    // 자동 실행 함수 
     let autoAnimaton = setInterval(() => {
         autoFlip();
     }, 1200);
@@ -10,6 +10,10 @@ window.onload = function() {
     // function movingCloud() {
         
     // }
+
+
+
+
 
 
 
@@ -45,20 +49,13 @@ window.onload = function() {
     }
 
     // section #about me-emoticon 클릭시 rotate
-    function circleRotate() {
-        const meEmoticon = document.getElementsByClassName('flip');
     
-        meEmoticon.addEventListener('click', e => {
-            e.current.target.toggleClass("front")
 
-        })
 
-        // transform: rotateY(180deg);
-            // transition: all 1s linear;
-    }
+    
 }
 
-// 모바일 햄버거 메뉴 열기, 닫기
+// 모바일 햄버거 메뉴 열기, 닫기 시작
 function openMobileNav() {
     document.getElementById("mobileNav").style.width = "100%"; 
 }
@@ -66,9 +63,37 @@ function openMobileNav() {
 function closeMobileNav() {
     document.getElementById("mobileNav").style.width = "0"; 
     document.getElementById("mobileNav").animate({opacity: "0"}, 600);
+} // 모바일 햄버거 메뉴 열기, 닫기 끝
+
+// 스크롤 탑 메뉴 걸리게
+function fixedMenu() {
+    const navPos = document.getElementById('gnb').offsetTop; // !!여기가 다르고
+    console.log(navPos);
+    let curPos = document.documentElement.scrollTop;
+    if(curPos > navPos) { // !! 여기가 다름!
+        document.getElementById('gnb').classList.add('menu_top');
+    } else {
+        document.getElementById('gnb').classList.remove('menu_top');
+    }
 }
+document.addEventListener('scroll', fixedMenu); 
 
 
 
+
+// section #about me-emoticon 클릭시 rotate
+const $flip = document.getElementsByClassName('flip');
+// function circleRotate() {
+
+    
+// }
+
+const $front = document.getElementsByClassName('front');
+const $back = document.getElementsByClassName('back');
+
+
+$flip.onclick = function(e) {
+    e.current.target == $front ? addClass("back").show() : addClass("front");
+}
 
 

@@ -210,27 +210,32 @@ header #home .header-bg .cloud-animation .cloud-wrap .cloud {
 header #home .header-bg .cloud-animation .cloud-wrap .cloud img {
   max-width: 30vw;
 }
-header #home nav .gnb {
+header #home #gnb {
+  display: flex;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
   width: 100%;
   height: 80px;
-  background-color: #77addf;
 }
-header #home nav .gnb li {
+header #home #gnb li {
   width: 160px;
   margin-right: 1.2em;
   text-align: center;
   line-height: 80px;
   font-weight: 500;
 }
-header #home nav .gnb li a:hover {
+header #home #gnb li a:hover {
   font-weight: 600;
   color: #ddefc4;
+}
+header #home .menu_top {
+  position: fixed;
+  top: 0;
+  background-color: #77addf;
+  z-index: 99;
 }
 header #home .ham-icon {
   position: absolute;
@@ -385,7 +390,13 @@ main #about .about-me .flexbox .me-emoticon .me-circle {
   background: #77addf;
   transform-style: preserve-3d;
   visibility: hidden;
-  transition: all 2s;
+  transition: all 1s;
+}
+main #about .about-me .flexbox .me-emoticon .flip .front {
+  transform: rotateY(0deg);
+}
+main #about .about-me .flexbox .me-emoticon .flip .back {
+  transform: rotateY(180deg);
 }
 main #about .about-me .flexbox .me-introduce {
   margin-bottom: 160px;
@@ -628,7 +639,7 @@ main #portfolio {
 }
 main #portfolio .pofol-box {
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 160px;
 }
 @media screen and (min-width: 768px) {
   main #portfolio .pofol-box .flexbox {
