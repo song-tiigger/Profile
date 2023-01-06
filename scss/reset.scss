@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
+@font-face {
+    font-family: Alphasmoke;
+    src: url(../fonts/Alphasmoke-OOX6.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: mckloud-stroke;
+    src: url(../fonts/MCKLW___.ttf) format("truetype");
+}
+@font-face {
+    font-family: mckloud-full;
+    src: url(../fonts/MCKLB___.ttf) format("truetype");
+}
+@font-face {
+    font-family: mckloud-shadow;
+    src: url(../fonts/MCKLSH__.ttf) format("truetype");
+}
+
+
 * {
     margin: 0;
     padding: 0;

@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/index.css"> <!-- css 연결하기 -->
-  <script src="./js/index.js"></script> <!-- js 연결 -->
   <script src="./js/jquery.js"></script> <!-- 제이쿼리 연결 -->
+  <script src="./js/index.js"></script> <!-- js 연결 -->
   <title>송하정</title>
 </head>
 
@@ -21,7 +21,7 @@
         </div>
 
         <div class="header-bg">
-          <!-- <div class="cloud cloud1"><img src="./images/cloud1.png" alt=""></div>
+          <!-- <div class="cloud cloud1"><img ssrc="./images/cloud1.png" alt=""></div>
           <div class="cloud cloud2"><img src="./images/cloud2.png" alt=""></div>
           <div class="cloud cloud3"><img src="./images/cloud3.png" alt=""></div> -->
 
@@ -43,20 +43,16 @@
               <div class="cloud cloud1"><img src="./images/cloud3.png" alt=""></div>
             </div>
           </div>
-          
-
-
-
         </div>
 
-        <!-- <nav class="large-only"> -->
-          <ul id="gnb" class="large-only"> <!-- large-only -->
-            <li><a href="#home">HOME</a></li>
+        <nav class="large-only">
+          <ul id="gnb"> <!-- large-only -->
+            <li><a href="#home" class="selected">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#skill">SKILL</a></li>
             <li><a href="#portfolio">PORTFOLIO</a></li>
           </ul>
-        <!-- </nav> -->
+        </nav>
 
         <div class="mobile-only">
           <div class="ham-icon" onclick="openMobileNav()">
@@ -66,10 +62,7 @@
           </div>
 
           <div id="mobileNav" class="mobile-nav-wrap">
-            <!-- <div class="closebtn" onclick="closeMobileNav()">&times;</div> -->
-            
             <div class="closebtn" onclick="closeMobileNav()"></div>
-              
             <ul class="mobile-nav">
               <li><a href="#home">HOME</a></li>
               <li><a href="#about">ABOUT</a></li>
@@ -80,7 +73,6 @@
         </div> <!-- mobile-only -->
 
         <div class="intro-flip-wrap">
-
           <h2>안녕하세요,</h2>
 
           <div id="textFlip">

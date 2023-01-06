@@ -1,3 +1,37 @@
+// 제이쿼리
+$(function() {
+    // 모바일 메뉴 클릭하면 메뉴 창 닫힘
+    $('.mobile-nav li a').on("click", function(e) {
+        closeMobileNav();
+    });
+
+    // 
+
+
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 window.onload = function() {
     // 자동 실행 함수 
     let autoAnimaton = setInterval(() => {
@@ -49,10 +83,7 @@ window.onload = function() {
     }
 
     // section #about me-emoticon 클릭시 rotate
-    
 
-
-    
 }
 
 // 모바일 햄버거 메뉴 열기, 닫기 시작
@@ -67,16 +98,23 @@ function closeMobileNav() {
 
 // 스크롤 탑 메뉴 걸리게
 function fixedMenu() {
-    const navPos = document.getElementById('gnb').offsetTop; // !!여기가 다르고
-    console.log(navPos);
     let curPos = document.documentElement.scrollTop;
-    if(curPos > navPos) { // !! 여기가 다름!
+    console.log(curPos);
+    if(curPos > 60) {
         document.getElementById('gnb').classList.add('menu_top');
     } else {
         document.getElementById('gnb').classList.remove('menu_top');
     }
 }
 document.addEventListener('scroll', fixedMenu); 
+
+
+
+
+
+
+
+
 
 
 

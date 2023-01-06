@@ -5,6 +5,22 @@
 /* ========== 한.영 글꼴 ========== */
 /* ========== 색상 ========== */
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@font-face {
+  font-family: Alphasmoke;
+  src: url(../fonts/Alphasmoke-OOX6.ttf) format("truetype");
+}
+@font-face {
+  font-family: mckloud-stroke;
+  src: url(../fonts/MCKLW___.ttf) format("truetype");
+}
+@font-face {
+  font-family: mckloud-full;
+  src: url(../fonts/MCKLB___.ttf) format("truetype");
+}
+@font-face {
+  font-family: mckloud-shadow;
+  src: url(../fonts/MCKLSH__.ttf) format("truetype");
+}
 * {
   margin: 0;
   padding: 0;
@@ -153,34 +169,15 @@ body {
     transform: translate3d(100%, 0, 0);
   }
 }
-@-webkit-keyframes textFlip {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(-50px);
-  }
-}
-@keyframes textFlip {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(-50px);
-  }
-}
 /* ==================== header ==================== */
 header {
   position: relative;
   width: 100vw;
 }
 header #home .logo {
-  position: absolute;
+  position: fixed;
   padding: 20px;
+  z-index: 98;
 }
 header #home .logo img {
   width: 60px;
@@ -210,63 +207,67 @@ header #home .header-bg .cloud-animation .cloud-wrap .cloud {
 header #home .header-bg .cloud-animation .cloud-wrap .cloud img {
   max-width: 30vw;
 }
-header #home #gnb {
-  display: flex;
-  justify-content: center;
-  position: absolute;
+header #home nav {
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 80px;
+  z-index: 99;
 }
-header #home #gnb li {
+header #home nav #gnb {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+header #home nav #gnb li {
   width: 160px;
   margin-right: 1.2em;
   text-align: center;
-  line-height: 80px;
-  font-weight: 500;
+  line-height: 60px;
 }
-header #home #gnb li a:hover {
+header #home nav #gnb li a {
+  color: #fcfcfc;
+}
+header #home nav #gnb li a:hover {
   font-weight: 600;
   color: #ddefc4;
 }
-header #home .menu_top {
-  position: fixed;
-  top: 0;
+header #home nav .menu_top {
   background-color: #77addf;
-  z-index: 99;
+  transition: 1s;
 }
 header #home .ham-icon {
-  position: absolute;
+  position: fixed;
   top: 30px;
-  right: 30px;
+  right: 40px;
   cursor: pointer;
+  z-index: 98;
 }
 header #home .ham-icon span {
   width: 28px;
-  height: 4px;
+  height: 6px;
   border-radius: 4px;
-  background-color: #fcfcfc;
+  background-color: #ff6464;
 }
 header #home .ham-icon span:nth-child(2) {
-  margin: 8px 0;
+  margin: 6px 0;
 }
 header #home .mobile-nav-wrap {
   position: fixed;
   height: 100%;
   width: 0;
-  z-index: 1;
+  z-index: 99;
   top: 0;
   left: 0;
-  background-color: #fcfcfc;
+  background-color: #77addf;
   overflow-x: hidden;
   transition: 0.5s;
 }
 header #home .mobile-nav-wrap .closebtn {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 24px;
+  right: 40px;
   cursor: pointer;
 }
 header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .closebtn::after {
@@ -275,11 +276,11 @@ header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  content: " ";
-  width: 4px;
-  height: 32px;
+  content: "";
+  width: 8px;
+  height: 38px;
   border-radius: 4px;
-  background-color: #77addf;
+  background-color: #333;
   cursor: pointer;
 }
 header #home .mobile-nav-wrap .closebtn::before {
@@ -295,17 +296,19 @@ header #home .mobile-nav-wrap .mobile-nav {
   width: 100%;
   text-align: center;
   margin-top: 30px;
+  font-family: mckloud-stroke;
 }
 header #home .mobile-nav-wrap .mobile-nav li a {
-  font-size: 38px;
+  font-size: 52px;
   letter-spacing: 8px;
   line-height: 100px;
-  font-weight: 600;
+  color: #fcfcfc;
 }
 header #home .mobile-nav-wrap .mobile-nav li a:hover {
-  color: #77addf;
-  font-size: 34px;
-  transition: 0.2s;
+  color: #fcfcfc;
+  font-size: 56px;
+  font-family: mckloud-full;
+  transition: 0.8s;
 }
 header #home .intro-flip-wrap {
   position: absolute;
@@ -695,6 +698,7 @@ main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:last-child {
 main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:hover {
   color: #77addf;
   background-color: #ddefc4;
+  transition: 0.2s;
 }
 @media screen and (min-width: 768px) {
   main #portfolio .left {
@@ -729,7 +733,7 @@ footer {
 }
 footer .footer-bg {
   position: relative;
-  padding: 80px 0;
+  padding: 100px 0;
   background-color: #ddefc4;
   background: linear-gradient(transparent, #ddefc4);
 }
@@ -775,12 +779,13 @@ footer .footer-bg .contact .topbtn {
 }
 footer .footer-bg .contact .topbtn:hover {
   filter: hue-rotate(60deg);
+  transition: 0.4s;
 }
 footer .copyright {
   width: 100%;
-  height: 80px;
+  height: 100px;
   text-align: center;
-  line-height: 80px;
+  line-height: 100px;
   vertical-align: center;
   font-size: 14px;
   color: #eee;
