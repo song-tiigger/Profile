@@ -73,7 +73,7 @@ body {
 
 @keyframes cloudLoop {
   0% {
-    -webkit-transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
   100% {
@@ -82,25 +82,20 @@ body {
   }
 }
 
-// @keyframes textFlip {
-//   0% {
-//     opacity: 0;
-//     transform: translateY(0);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateY(-50px);
-//   }
-// }
-
-
+@keyframes moveto{
+  0%{
+      offset-distance: 0%
+  }
+  100%{
+      offset-distance: 100%;
+  }
+}
 
 /* ==================== header ==================== */
 
 header {
   position: relative;
   width: 100vw;
-
   // background-color: aquamarine;
 
   #home {
@@ -117,79 +112,85 @@ header {
     } // logo
 
     .header-bg {
+      position: relative;
       width: 100%;
       height: 100vh;
+      overflow: hidden;
       background: linear-gradient($color-main, transparent);
 
-
-
-      // cloud 애니메이션 ver1 시작
-      // .cloud {
-      //   position: absolute;
-        
-      //   img {
-      //     max-width: 30vw;
-      //   }
-      // }
-
-      // .cloud1 {
-      //   top: 400px;
-      //   left: 0;
-      //   overflow: hidden;
-      //   // animation: cloudLoop 4s infinite;
-      // }
-
-      // .cloud2 {
-      //   top: -80px;
-      //   left: 0;
-      //   // animation: cloudLoop 4s infinite;
-
-      // }
-
-      // .cloud3 {
-      //   top: 100px;
-      //   // animation: cloudLoop 4s infinite;
-      // }
-      // cloud 애니메이션 ver1 끝
-
-
-      // cloud 애니메이션 ver2 시작
       .cloud-animation {
-        width: 100%; height: 280px;
-        overflow: hidden;
+        width: 100%; 
         margin-bottom: 20px;
-        // background-color: pink;
+        background-color: pink;
         z-index: 0;
+        object-fit: cover;
         
         .cloud-wrap {
           display: flex;
-          width: 2240px; // 280px * 8개
-          // height: 200px;
-          // background-color: #ff9a00;
+          // width: 2240px; // 280px * 8개
+          background-color: #ff9a00;
+
+          & > div:first-child {
+            width: 100vw;
+            // background-color:#0065f4;
+          }
           
           .cloud {
-            width: 100%;
+            position: absolute;
+            width: 100vw;
+
             margin-right: 20px;
             // background-color: #cc6699;
 
             img {
-              max-width: 30vw;
+              // position: absolute;
+              // right: 0;
+              max-width: 24vw;
+              object-fit: cover;
             }
-          } // cloud 
+          }
+
+          .cloud1 {
+            top: -6%;
+            right: 0;
+            animation: cloudLoop 20s infinite linear;
+
+            @include responsive(tablet-screens) {
+              top: -20%;
+            }
+          }
+
+          .cloud2 {
+            top: 20%;
+            left: 80%;
+            animation: cloudLoop 30s infinite linear;
+          }
+
+          .cloud3 {
+            top: 70%;
+            left: 50%;
+            animation: cloudLoop 22s infinite linear;
+          }
+
+          // .first {
+          //   left: -100%;
+          //   background-color: #0065f4;
+          //   transition: 3s;
+          // }
+
+          // .second {
+          //   left: 0;
+          //   background-color: yellow;
+          //   transition: 3s;
+          // }
+
+          // .last {
+          //   left: 100%;
+          //   background-color: #cc6699;
+          //   transition: 3s;
+          // }
         } // cloud-wrap
-      }
-
-
-
-
-
-      // cloud 애니메이션 ver2 끝
-
-
-
-
-
-
+      } // cloud-animation
     } // header-bg
 
     nav {
@@ -230,7 +231,7 @@ header {
 
     .ham-icon {
       position: fixed;
-      top: 30px; right: 40px;
+      top: 30px; right: 20px;
       cursor: pointer;
       z-index: 98;
 
@@ -250,17 +251,18 @@ header {
       position: fixed;
       height: 100%;
       width: 0;
-      z-index: 99;
       top: 0;
       left: 0;
-      background-color: $color-main;
       overflow-x: hidden;
       transition: 0.5s;
+      z-index: 99;
+      background-color: $color-main;
 
       .closebtn {
         position: absolute;
         top: 24px; right: 40px;
         cursor: pointer;
+        background-color: #0065f4;
 
         &::before,
         &::after {
@@ -272,7 +274,7 @@ header {
           width: 8px;
           height: 38px;
           border-radius: 4px;
-          background-color: #333;
+          background-color: $body-bg;
           cursor: pointer;
         }
 
@@ -383,7 +385,6 @@ main {
   
           @include responsive(desktop-screens) {
             width: 380px;
-            background-color: yellow;
           }
 
           img {
@@ -405,7 +406,7 @@ main {
 
             transform-style: preserve-3d;
             visibility: hidden;
-            transition: all 1s;
+            // transition: all 1s;
           }
 
           // *************************************
@@ -421,7 +422,7 @@ main {
               
             }
 
-          }
+          } // flip
         } // me-emoticon
   
         .me-introduce {
@@ -430,7 +431,6 @@ main {
           @include responsive(desktop-screens) {
             width: 680px;
             text-align: left;
-            background-color: yellow;
           }
 
           strong {
@@ -455,13 +455,12 @@ main {
           font-size: $strong-text-L;
           line-height: 2.6rem;
           margin-bottom: 80px;
-  
+
           @include responsive(desktop-screens) {
             width: 380px;
             padding: 0 80px;
             font-size: 36px;
             text-align: right;
-            // background-color: yellow;
           }
         } // about-work-title
   
@@ -485,6 +484,8 @@ main {
       } // flexbox
     } // about-work
   } // #about
+
+  
 
 
   #skill {
@@ -522,13 +523,26 @@ main {
       } // grass
 
       .track {
+        position: relative;
         width: 100%;
         padding: 168px 0;
 
         img {
           width: 900px;
         }
+
+        svg {
+          position: absolute;
+          top: 168px; left: 0;
+          // width: 100%;
+          // height: 60%;
+          background-color: rgba(252, 252, 252, 0.6);
+
+    
+        }
       } // track
+
+
 
       .skill-info {
         position: relative;
@@ -623,6 +637,8 @@ main {
       } // skill-info
     } // skill-bg
 
+
+
     .skill-circle {
       position: absolute;
       top: 0; 
@@ -642,6 +658,7 @@ main {
       .cir-html {
         top: -460px; left: 900px;
         background-color: #f16529;
+
       }
       .cir-css {
         top: -420px; left: 940px;

@@ -1,26 +1,21 @@
 // 제이쿼리
 $(function() {
     // 모바일 메뉴 클릭하면 메뉴 창 닫힘
-    $('.mobile-nav li a').on("click", function(e) {
-        closeMobileNav();
-    });
-
-    // 
+    $('.mobile-nav li a').on("click", closeMobileNav
+    );
 
 
 
 
-
-
+    // 마우스오버하면 스킬 나타나는 이벤트
+    var windowWidth = $( window ).width();
+    if(windowWidth > 768) {
+        $('.info-box').hide();
+    } 
+    if (windowWidth <= 768) {
+        $('.info-box').show();
+    }
 })
-
-
-
-
-
-
-
-
 
 
 
@@ -36,34 +31,32 @@ window.onload = function() {
     // 자동 실행 함수 
     let autoAnimaton = setInterval(() => {
         autoFlip();
+        // movingCloud();
     }, 1200);
     
-    // 구름 흘러가는 애니메이션
-    const cloudAnimation = document.getElementsByClassName('cloud-animation');
+
+
+    // 구름 흘러가는 애니메이션 - 230108 오후 3:53시 기준 미완성 ㅜㅜ
+    // const cloudAnimation = document.getElementsByClassName('cloud-animation');
 
     // function movingCloud() {
-        
-    // }
 
+    //     document.querySelector('.first').classList.remove('first');
 
+    //     let second = document.querySelector('.second');
+    //     second.classList.remove('second');
+    //     second.classList.add('first');
 
+    //     let last = document.querySelector('.last');
+    //     if(last.nextElementSibling == null) {
+    //         document.querySelector('.cloud_wrap cloud1').classList.add('last');
+    //     } else {
+    //         last.nextElementSibling.classList.add('last');
+    //     }
+    //     last.classList.remove('last');
+    //     last.classList.add('current');
+    // } // 미완성
 
-
-
-
-
-
-
-
-
-
-
-    // #home의 텍스트 플립 애니메이션
-    // const $textFlip = document.getElementById('textFlip');
-
-    // setInterval(() => {
-    //     autoFlip();
-    // }, 1200);
 
     function autoFlip() {
         document.querySelector('.prev').classList.remove('prev');
@@ -84,6 +77,12 @@ window.onload = function() {
 
     // section #about me-emoticon 클릭시 rotate
 
+
+
+
+
+
+
 }
 
 // 모바일 햄버거 메뉴 열기, 닫기 시작
@@ -94,12 +93,12 @@ function openMobileNav() {
 function closeMobileNav() {
     document.getElementById("mobileNav").style.width = "0"; 
     document.getElementById("mobileNav").animate({opacity: "0"}, 600);
-} // 모바일 햄버거 메뉴 열기, 닫기 끝
+}
 
 // 스크롤 탑 메뉴 걸리게
 function fixedMenu() {
     let curPos = document.documentElement.scrollTop;
-    console.log(curPos);
+    // console.log(curPos);
     if(curPos > 60) {
         document.getElementById('gnb').classList.add('menu_top');
     } else {
@@ -108,6 +107,8 @@ function fixedMenu() {
 }
 document.addEventListener('scroll', fixedMenu); 
 
+
+// 마우스 오버하면 스킬 설명 나타나는 이벤트
 
 
 
@@ -129,9 +130,5 @@ const $flip = document.getElementsByClassName('flip');
 const $front = document.getElementsByClassName('front');
 const $back = document.getElementsByClassName('back');
 
-
-$flip.onclick = function(e) {
-    e.current.target == $front ? addClass("back").show() : addClass("front");
-}
 
 

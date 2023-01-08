@@ -169,6 +169,22 @@ body {
     transform: translate3d(100%, 0, 0);
   }
 }
+@-webkit-keyframes moveto {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+@keyframes moveto {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
 /* ==================== header ==================== */
 header {
   position: relative;
@@ -185,27 +201,59 @@ header #home .logo img {
   cursor: pointer;
 }
 header #home .header-bg {
+  position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   background: linear-gradient(#77addf, transparent);
 }
 header #home .header-bg .cloud-animation {
   width: 100%;
-  height: 280px;
-  overflow: hidden;
   margin-bottom: 20px;
+  background-color: pink;
   z-index: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 header #home .header-bg .cloud-animation .cloud-wrap {
   display: flex;
-  width: 2240px;
+  background-color: #ff9a00;
+}
+header #home .header-bg .cloud-animation .cloud-wrap > div:first-child {
+  width: 100vw;
 }
 header #home .header-bg .cloud-animation .cloud-wrap .cloud {
-  width: 100%;
+  position: absolute;
+  width: 100vw;
   margin-right: 20px;
 }
 header #home .header-bg .cloud-animation .cloud-wrap .cloud img {
-  max-width: 30vw;
+  max-width: 24vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+header #home .header-bg .cloud-animation .cloud-wrap .cloud1 {
+  top: -6%;
+  right: 0;
+  -webkit-animation: cloudLoop 20s infinite linear;
+          animation: cloudLoop 20s infinite linear;
+}
+@media screen and (min-width: 768px) {
+  header #home .header-bg .cloud-animation .cloud-wrap .cloud1 {
+    top: -20%;
+  }
+}
+header #home .header-bg .cloud-animation .cloud-wrap .cloud2 {
+  top: 20%;
+  left: 80%;
+  -webkit-animation: cloudLoop 30s infinite linear;
+          animation: cloudLoop 30s infinite linear;
+}
+header #home .header-bg .cloud-animation .cloud-wrap .cloud3 {
+  top: 70%;
+  left: 50%;
+  -webkit-animation: cloudLoop 22s infinite linear;
+          animation: cloudLoop 22s infinite linear;
 }
 header #home nav {
   position: fixed;
@@ -240,7 +288,7 @@ header #home nav .menu_top {
 header #home .ham-icon {
   position: fixed;
   top: 30px;
-  right: 40px;
+  right: 20px;
   cursor: pointer;
   z-index: 98;
 }
@@ -257,18 +305,19 @@ header #home .mobile-nav-wrap {
   position: fixed;
   height: 100%;
   width: 0;
-  z-index: 99;
   top: 0;
   left: 0;
-  background-color: #77addf;
   overflow-x: hidden;
   transition: 0.5s;
+  z-index: 99;
+  background-color: #77addf;
 }
 header #home .mobile-nav-wrap .closebtn {
   position: absolute;
   top: 24px;
   right: 40px;
   cursor: pointer;
+  background-color: #0065f4;
 }
 header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .closebtn::after {
   display: inline-block;
@@ -280,7 +329,7 @@ header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .
   width: 8px;
   height: 38px;
   border-radius: 4px;
-  background-color: #333;
+  background-color: #fcfcfc;
   cursor: pointer;
 }
 header #home .mobile-nav-wrap .closebtn::before {
@@ -373,7 +422,6 @@ main #about .about-me .flexbox .me-emoticon {
 @media screen and (min-width: 1200px) {
   main #about .about-me .flexbox .me-emoticon {
     width: 380px;
-    background-color: yellow;
   }
 }
 main #about .about-me .flexbox .me-emoticon img {
@@ -393,7 +441,6 @@ main #about .about-me .flexbox .me-emoticon .me-circle {
   background: #77addf;
   transform-style: preserve-3d;
   visibility: hidden;
-  transition: all 1s;
 }
 main #about .about-me .flexbox .me-emoticon .flip .front {
   transform: rotateY(0deg);
@@ -408,7 +455,6 @@ main #about .about-me .flexbox .me-introduce {
   main #about .about-me .flexbox .me-introduce {
     width: 680px;
     text-align: left;
-    background-color: yellow;
   }
 }
 main #about .about-me .flexbox .me-introduce strong {
@@ -489,11 +535,18 @@ main #skill .skill-bg .grass img {
   }
 }
 main #skill .skill-bg .track {
+  position: relative;
   width: 100%;
   padding: 168px 0;
 }
 main #skill .skill-bg .track img {
   width: 900px;
+}
+main #skill .skill-bg .track svg {
+  position: absolute;
+  top: 168px;
+  left: 0;
+  background-color: rgba(252, 252, 252, 0.6);
 }
 main #skill .skill-bg .skill-info {
   position: relative;
