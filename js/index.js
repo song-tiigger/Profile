@@ -1,31 +1,30 @@
 // 제이쿼리
 $(function() {
     // 모바일 메뉴 클릭하면 메뉴 창 닫힘
-    $('.mobile-nav li a').on("click", closeMobileNav
+    $(".mobile-nav li a").on("click", closeMobileNav
     );
 
-
-
+    $(window).resize(function() { 
+        if(window.innerWidth > 1200) {
+            $(".info-box").hide();
+        } else {
+            $(".info-box").show();
+        }
+    }).resize();
 
     // 마우스오버하면 스킬 나타나는 이벤트
-    var windowWidth = $( window ).width();
-    if(windowWidth > 768) {
-        $('.info-box').hide();
-    } 
-    if (windowWidth <= 768) {
-        $('.info-box').show();
-    }
-})
-
-
-
-
-
-
-
-
-
-
+    $(".skill-circle div").on({
+        "mouseover" : function() {
+            var idx = $(".skill-circle div").index(this);
+            // $("#skill .skill-info>div").stop().fadeOut(500);
+            $("#skill .skill-info>div").eq(idx).fadeIn(500);
+        },
+        "mouseout" : function() {
+            var idx = $(".skill-circle div").index(this);
+            $("#skill .skill-info>div").eq(idx).fadeOut(500);
+        }
+    });
+}); 
 
 window.onload = function() {
     // 자동 실행 함수 
@@ -34,8 +33,6 @@ window.onload = function() {
         // movingCloud();
     }, 1200);
     
-
-
     // 구름 흘러가는 애니메이션 - 230108 오후 3:53시 기준 미완성 ㅜㅜ
     // const cloudAnimation = document.getElementsByClassName('cloud-animation');
 
@@ -57,7 +54,7 @@ window.onload = function() {
     //     last.classList.add('current');
     // } // 미완성
 
-
+    // 텍스트 키워드 무한 플립
     function autoFlip() {
         document.querySelector('.prev').classList.remove('prev');
 
@@ -79,11 +76,15 @@ window.onload = function() {
 
 
 
-
-
-
-
-}
+    // top 버튼 스크롤 효과
+    const $topbtn = document.querySelector('.topbtn');
+    $topbtn.onclick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+} //window.onload
 
 // 모바일 햄버거 메뉴 열기, 닫기 시작
 function openMobileNav() {
@@ -107,28 +108,18 @@ function fixedMenu() {
 }
 document.addEventListener('scroll', fixedMenu); 
 
-
-// 마우스 오버하면 스킬 설명 나타나는 이벤트
-
-
-
-
-
-
-
-
-
-
-
 // section #about me-emoticon 클릭시 rotate
 const $flip = document.getElementsByClassName('flip');
-// function circleRotate() {
-
-    
-// }
+function circleRotate() {
+    console.log(1);
+}
 
 const $front = document.getElementsByClassName('front');
 const $back = document.getElementsByClassName('back');
+
+
+
+
 
 
 

@@ -542,12 +542,6 @@ main #skill .skill-bg .track {
 main #skill .skill-bg .track img {
   width: 900px;
 }
-main #skill .skill-bg .track svg {
-  position: absolute;
-  top: 168px;
-  left: 0;
-  background-color: rgba(252, 252, 252, 0.6);
-}
 main #skill .skill-bg .skill-info {
   position: relative;
   padding: 80px 4%;
