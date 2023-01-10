@@ -169,22 +169,6 @@ body {
     transform: translate3d(100%, 0, 0);
   }
 }
-@-webkit-keyframes moveto {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}
-@keyframes moveto {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}
 /* ==================== header ==================== */
 header {
   position: relative;
@@ -629,60 +613,101 @@ main #skill .skill-circle {
 }
 main #skill .skill-circle .circle {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   border-radius: 50%;
   font-size: 16px;
   font-weight: 600;
   color: #eee;
-  line-height: 80px;
+  line-height: 60px;
+  transform: rotate(90deg);
+}
+main #skill .skill-circle .circle:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+@-webkit-keyframes trackPath {
+  0% {
+    offset-distance: 0;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+@keyframes trackPath {
+  0% {
+    offset-distance: 0;
+  }
+  100% {
+    offset-distance: 100%;
+  }
 }
 main #skill .skill-circle .cir-html {
-  top: -460px;
-  left: 900px;
+  top: -900px;
+  left: -40px;
   background-color: #f16529;
+  -webkit-animation: trackPath 16s linear infinite;
+          animation: trackPath 16s linear infinite;
+  offset-path: path("M977.89,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,966,597.12,977.89,435.1Z");
 }
 main #skill .skill-circle .cir-css {
-  top: -420px;
-  left: 940px;
+  top: -880px;
+  left: -40px;
   background-color: #0065f4;
+  -webkit-animation: trackPath 12s linear infinite;
+          animation: trackPath 12s linear infinite;
+  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
 }
 main #skill .skill-circle .cir-sass {
-  top: -340px;
-  left: 900px;
+  top: -945px;
+  left: 20px;
   background-color: #cc6699;
+  -webkit-animation: trackPath 14s ease-in-out infinite;
+          animation: trackPath 14s ease-in-out infinite;
 }
 main #skill .skill-circle .cir-bootstrap {
-  top: -420px;
-  left: 200px;
+  top: -920px;
+  left: 0;
   background-color: #7952b3;
+  -webkit-animation: trackPath 14s ease-in-out infinite;
+          animation: trackPath 14s ease-in-out infinite;
 }
 main #skill .skill-circle .cir-javascript {
-  top: -280px;
-  left: 620px;
+  top: -940px;
+  left: 0;
   color: #666;
   background-color: #ffdf00;
+  -webkit-animation: trackPath 18s linear infinite;
+          animation: trackPath 18s linear infinite;
 }
 main #skill .skill-circle .cir-jquery {
-  top: -340px;
-  left: 500px;
+  top: -940px;
+  left: 0;
   background-color: #0868ac;
+  -webkit-animation: trackPath 14s ease-in-out infinite;
+          animation: trackPath 14s ease-in-out infinite;
 }
 main #skill .skill-circle .cir-react {
-  top: -300px;
-  left: 400px;
+  top: -940px;
+  left: 0;
   background-color: #6ecff1;
+  -webkit-animation: trackPath 18s linear infinite;
+          animation: trackPath 18s linear infinite;
 }
 main #skill .skill-circle .cir-photoshop {
-  top: -260px;
-  left: 840px;
+  top: -940px;
+  left: 0;
   background-color: #31a8ff;
+  -webkit-animation: trackPath 14s ease-in-out infinite;
+          animation: trackPath 14s ease-in-out infinite;
 }
 main #skill .skill-circle .cir-illust {
-  top: -340px;
-  left: 800px;
+  top: -940px;
+  left: 0;
   background-color: #ff9a00;
+  -webkit-animation: trackPath 14s ease-in-out infinite;
+          animation: trackPath 14s ease-in-out infinite;
 }
 main #portfolio {
   text-align: center;

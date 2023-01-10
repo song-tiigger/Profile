@@ -17,11 +17,12 @@ $(function() {
         "mouseover" : function() {
             var idx = $(".skill-circle div").index(this);
             // $("#skill .skill-info>div").stop().fadeOut(500);
-            $("#skill .skill-info>div").eq(idx).fadeIn(500);
+            $("#skill .skill-info>div").eq(idx).fadeIn(400);
+            
         },
         "mouseout" : function() {
             var idx = $(".skill-circle div").index(this);
-            $("#skill .skill-info>div").eq(idx).fadeOut(500);
+            $("#skill .skill-info>div").eq(idx).fadeOut(400);
         }
     });
 }); 
