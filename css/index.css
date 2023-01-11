@@ -725,10 +725,11 @@ main #portfolio .pofol-box {
 main #portfolio .pofol-box .flexbox .pofol-thumbnail {
   position: relative;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.29) 0px 10px 20px, rgba(0, 0, 0, 0.18) 0px 6px 6px;
 }
 main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
+  display: block;
   width: 100%;
-  background-color: #0065f4;
 }
 main #portfolio .pofol-box .flexbox .pofol-info {
   text-align: left;
@@ -736,7 +737,7 @@ main #portfolio .pofol-box .flexbox .pofol-info {
 @media screen and (min-width: 768px) {
   main #portfolio .pofol-box .flexbox .pofol-info {
     text-align: unset;
-    background-color: #cc6699;
+    width: min(80%, 400px);
   }
 }
 main #portfolio .pofol-box .flexbox .pofol-info > div {

@@ -34,26 +34,7 @@ window.onload = function() {
         // movingCloud();
     }, 1200);
     
-    // 구름 흘러가는 애니메이션 - 230108 오후 3:53시 기준 미완성 ㅜㅜ
-    // const cloudAnimation = document.getElementsByClassName('cloud-animation');
 
-    // function movingCloud() {
-
-    //     document.querySelector('.first').classList.remove('first');
-
-    //     let second = document.querySelector('.second');
-    //     second.classList.remove('second');
-    //     second.classList.add('first');
-
-    //     let last = document.querySelector('.last');
-    //     if(last.nextElementSibling == null) {
-    //         document.querySelector('.cloud_wrap cloud1').classList.add('last');
-    //     } else {
-    //         last.nextElementSibling.classList.add('last');
-    //     }
-    //     last.classList.remove('last');
-    //     last.classList.add('current');
-    // } // 미완성
 
     // 텍스트 키워드 무한 플립
     function autoFlip() {
