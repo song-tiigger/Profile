@@ -60,7 +60,8 @@ window.onload = function() {
 
     // top 버튼 스크롤 효과
     const $topbtn = document.querySelector('.topbtn');
-    $topbtn.onclick = () => {
+    $topbtn.onclick = (e) => {
+        e.preventDefault();
         window.scrollTo({
             top: 0,
             behavior: "smooth"

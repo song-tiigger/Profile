@@ -725,6 +725,7 @@ main #portfolio .pofol-box {
 main #portfolio .pofol-box .flexbox .pofol-thumbnail {
   position: relative;
   width: 100%;
+  margin-bottom: 28px;
   box-shadow: rgba(0, 0, 0, 0.29) 0px 10px 20px, rgba(0, 0, 0, 0.18) 0px 6px 6px;
 }
 main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
