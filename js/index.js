@@ -4,6 +4,28 @@ $(function() {
     $(".mobile-nav li a").on("click", closeMobileNav
     );
 
+    // 모바일 메뉴 클릭하면 스크롤로 이동 수정하기(여기부터)
+    const gnbA = $('.mobile-nav > li > a');
+
+    const MenuPo = $(window).height() / 2-$(".mobile-nav").height() / 2; 
+
+    $(".mobile-nav").css('top', MenuPo);
+
+    gnbA.click(function() {
+        const target = $(this).attr('href');
+        $('html').animate({'scrollTop' : $(target).offset().top});
+
+        if(gnbA.target) {
+            gnbA.removeClass('active');
+            $(this).addClass('active');
+        } else {
+            $(this).addClass('active');
+        }
+        gnbA.target = this;
+        return false;
+    });
+    // 모바일 메뉴 클릭하면 스크롤로 이동 수정하기(여기까지)
+
     $(window).resize(function() { 
         if(window.innerWidth > 1200) {
             $(".info-box").hide();
@@ -16,13 +38,11 @@ $(function() {
     $(".skill-circle div").on({
         "mouseover" : function() {
             var idx = $(".skill-circle div").index(this);
-            // $("#skill .skill-info>div").stop().fadeOut(500);
             $("#skill .skill-info>div").eq(idx).fadeIn(400);
-            
         },
         "mouseout" : function() {
             var idx = $(".skill-circle div").index(this);
-            $("#skill .skill-info>div").eq(idx).fadeOut(400);
+            $("#skill .skill-info>div").eq(idx).stop().fadeOut(400);
         }
     });
 }); 
@@ -54,7 +74,6 @@ window.onload = function() {
         next.classList.add('current');
     }
 
-    // section #about me-emoticon 클릭시 rotate
 
 
 
@@ -69,7 +88,7 @@ window.onload = function() {
     }
 } //window.onload
 
-// 모바일 햄버거 메뉴 열기, 닫기 시작
+// 모바일 햄버거 메뉴 열기, 닫기
 function openMobileNav() {
     document.getElementById("mobileNav").style.width = "100%"; 
 }
@@ -91,7 +110,12 @@ function fixedMenu() {
 }
 document.addEventListener('scroll', fixedMenu); 
 
-// section #about me-emoticon 클릭시 rotate
+
+
+
+
+
+// section #about me-emoticon 클릭시 rotate ****미완성****
 const $flip = document.getElementsByClassName('flip');
 function circleRotate() {
     console.log(1);
@@ -99,6 +123,7 @@ function circleRotate() {
 
 const $front = document.getElementsByClassName('front');
 const $back = document.getElementsByClassName('back');
+// section #about me-emoticon 클릭시 rotate ****미완성****
 
 
 
