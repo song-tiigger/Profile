@@ -1,15 +1,11 @@
 // 제이쿼리
 $(function() {
     // 모바일 메뉴 클릭하면 메뉴 창 닫힘
-    $(".mobile-nav li a").on("click", closeMobileNav
+    $(".mobile-nav > li > a").on("click", closeMobileNav
     );
 
     // 모바일 메뉴 클릭하면 스크롤로 이동 수정하기(여기부터)
     const gnbA = $('.mobile-nav > li > a');
-
-    const MenuPo = $(window).height() / 2-$(".mobile-nav").height() / 2; 
-
-    $(".mobile-nav").css('top', MenuPo);
 
     gnbA.click(function() {
         const target = $(this).attr('href');
@@ -26,7 +22,7 @@ $(function() {
     });
     // 모바일 메뉴 클릭하면 스크롤로 이동 수정하기(여기까지)
 
-    $(window).resize(function() { 
+    $(window).resize(function() {
         if(window.innerWidth > 1200) {
             $(".info-box").hide();
         } else {
@@ -34,19 +30,20 @@ $(function() {
         }
     }).resize();
 
-    // 마우스오버하면 스킬 나타나는 이벤트
+    // skill-circle에 마우스오버하면 info-box 나타나는 이벤트
     $(".skill-circle div").on({
         "mouseover" : function() {
             var idx = $(".skill-circle div").index(this);
-            $("#skill .skill-info>div").eq(idx).fadeIn(400);
+            $("#skill .skill-info > div").eq(idx).fadeIn(400);
         },
         "mouseout" : function() {
             var idx = $(".skill-circle div").index(this);
-            $("#skill .skill-info>div").eq(idx).stop().fadeOut(400);
+            $("#skill .skill-info > div").eq(idx).stop().fadeOut(400);
         }
     });
 }); 
 
+// 자바스크립트
 window.onload = function() {
     // 자동 실행 함수 
     let autoAnimaton = setInterval(() => {
@@ -56,7 +53,7 @@ window.onload = function() {
     
 
 
-    // 텍스트 키워드 무한 플립
+    // header 텍스트 키워드 애니메이션
     function autoFlip() {
         document.querySelector('.prev').classList.remove('prev');
 
@@ -77,7 +74,7 @@ window.onload = function() {
 
 
 
-    // top 버튼 스크롤 효과
+    // top 버튼 스크롤 애니메이션
     const $topbtn = document.querySelector('.topbtn');
     $topbtn.onclick = (e) => {
         e.preventDefault();
@@ -98,7 +95,7 @@ function closeMobileNav() {
     document.getElementById("mobileNav").animate({opacity: "0"}, 600);
 }
 
-// 스크롤 탑 메뉴 걸리게
+// 스크롤 내리면 pc gnb fix되는 기능
 function fixedMenu() {
     let curPos = document.documentElement.scrollTop;
     // console.log(curPos);

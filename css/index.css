@@ -372,6 +372,9 @@ header #home .intro-flip-wrap {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+header #home .intro-flip-wrap h2 {
+  font-weight: 500;
+}
 header #home .intro-flip-wrap #textFlip {
   position: relative;
   width: 200px;
