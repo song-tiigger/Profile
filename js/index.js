@@ -1,26 +1,35 @@
 // 제이쿼리
 $(function() {
+    // pc 메뉴 스크롤 이동
+    const gnbA = $('#gnb > li > a');
+    
+    gnbA.click(function() {
+        const target = $(this).attr('href');
+        $('html').animate({'scrollTop' : $(target).offset().top});
+    })
+
     // 모바일 메뉴 클릭하면 메뉴 창 닫힘
     $(".mobile-nav > li > a").on("click", closeMobileNav
     );
 
-    // 모바일 메뉴 클릭하면 스크롤로 이동 수정하기(여기부터)
-    const gnbA = $('.mobile-nav > li > a');
+    // 모바일 메뉴 클릭하면 스크롤로 이동 
+    const m_gnbA = $('.mobile-nav > li > a');
 
-    gnbA.click(function() {
+    m_gnbA.click(function() {
         const target = $(this).attr('href');
         $('html').animate({'scrollTop' : $(target).offset().top});
 
-        if(gnbA.target) {
-            gnbA.removeClass('active');
+        //*수정하기(여기부터)
+        if(m_gnbA.target) {
+            m_gnbA.removeClass('active');
             $(this).addClass('active');
         } else {
             $(this).addClass('active');
         }
-        gnbA.target = this;
+        m_gnbA.target = this;
         return false;
+        //*수정하기(여기까지)
     });
-    // 모바일 메뉴 클릭하면 스크롤로 이동 수정하기(여기까지)
 
     $(window).resize(function() {
         if(window.innerWidth > 1200) {
@@ -51,8 +60,6 @@ window.onload = function() {
         // movingCloud();
     }, 1200);
     
-
-
     // header 텍스트 키워드 애니메이션
     function autoFlip() {
         document.querySelector('.prev').classList.remove('prev');
@@ -71,9 +78,6 @@ window.onload = function() {
         next.classList.add('current');
     }
 
-
-
-
     // top 버튼 스크롤 애니메이션
     const $topbtn = document.querySelector('.topbtn');
     $topbtn.onclick = (e) => {
@@ -83,6 +87,11 @@ window.onload = function() {
             behavior: "smooth"
         })
     }
+
+
+
+
+
 } //window.onload
 
 // 모바일 햄버거 메뉴 열기, 닫기
@@ -106,25 +115,27 @@ function fixedMenu() {
     }
 }
 document.addEventListener('scroll', fixedMenu); 
-
-
+        
 
 
 
 
 // section #about me-emoticon 클릭시 rotate ****미완성****
-const $flip = document.getElementsByClassName('flip');
-function circleRotate() {
-    console.log(1);
-}
+// let $flip = document.querySelectorAll('.flip');
+// function circleRotate() {
+//     console.log(22);
+// }
+// $flip.addEventListener('click', circleRotate);
 
-const $front = document.getElementsByClassName('front');
-const $back = document.getElementsByClassName('back');
+
+// const $front = document.getElementsByClassName('front');
+// const $back = document.getElementsByClassName('back');
 // section #about me-emoticon 클릭시 rotate ****미완성****
 
 
 
-
-
-
-
+// 스크롤 내릴 때 내용 보이기
+window.addEventListener('scroll', function() {
+    let scPos = window.scrollY;
+    console.log(scPos);
+})

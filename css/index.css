@@ -29,7 +29,7 @@
 
 html,
 body {
-  font: 20px "Nanum Gothic", sans-serif, "맑은 고딕";
+  font: 18px "Nanum Gothic", sans-serif, "맑은 고딕";
   color: #333;
   background-color: #fcfcfc;
 }
@@ -275,14 +275,16 @@ header #home nav #gnb li {
   line-height: 60px;
 }
 header #home nav #gnb li a {
-  color: #fcfcfc;
+  color: #000;
 }
 header #home nav #gnb li a:hover {
   font-weight: 600;
   color: #ddefc4;
 }
 header #home nav .menu_top {
-  background-color: #77addf;
+  border-bottom: 1px solid rgba(119, 173, 223, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   transition: 1s;
 }
 header #home .ham-icon {
@@ -317,7 +319,6 @@ header #home .mobile-nav-wrap .closebtn {
   top: 24px;
   right: 40px;
   cursor: pointer;
-  background-color: #0065f4;
 }
 header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .closebtn::after {
   display: inline-block;
@@ -466,12 +467,7 @@ main #about .about-me .flexbox .me-introduce {
   }
 }
 main #about .about-me .flexbox .me-introduce strong {
-  font-size: 1.6rem;
-}
-@media screen and (min-width: 1200px) {
-  main #about .about-work {
-    margin-top: 160px;
-  }
+  font-size: 1.4rem;
 }
 main #about .about-work .flexbox {
   display: flex;
@@ -801,6 +797,9 @@ main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:hover {
   background-color: #ddefc4;
   transition: 0.28s;
 }
+main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button a {
+  color: #fcfcfc;
+}
 @media screen and (min-width: 768px) {
   main #portfolio .left {
     text-align: left;
@@ -846,19 +845,45 @@ footer .footer-bg .contact {
     font-size: 24px;
   }
 }
-footer .footer-bg .contact a {
+footer .footer-bg .contact .email {
+  position: relative;
   display: inline-block;
-  margin: 24px 0 60px 0;
+  margin: 24px 0 14px 0;
   cursor: pointer;
   font-size: 32px;
 }
-footer .footer-bg .contact a:hover {
-  color: #77addf;
+footer .footer-bg .contact .email::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(246, 209, 95, 0.5);
+}
+footer .footer-bg .contact .email:hover::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  transition: all 1s ease;
+  background: rgba(246, 209, 95, 0.5);
 }
 @media screen and (min-width: 768px) {
-  footer .footer-bg .contact a {
+  footer .footer-bg .contact .email {
     font-size: 48px;
   }
+}
+footer .footer-bg .contact p {
+  margin-bottom: 60px;
+  font-size: 16px;
+  color: #888;
 }
 footer .footer-bg .contact .git,
 footer .footer-bg .contact .topbtn {
