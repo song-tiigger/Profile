@@ -128,6 +128,10 @@ footer {
   }
 }
 
+.hideme {
+  opacity: 0;
+}
+
 h3 {
   display: inline-block;
   position: relative;
@@ -240,7 +244,7 @@ header #home .header-bg .cloud-animation .cloud-wrap .cloud1 {
 }
 @media screen and (min-width: 768px) {
   header #home .header-bg .cloud-animation .cloud-wrap .cloud1 {
-    top: -20%;
+    top: -12%;
   }
 }
 header #home .header-bg .cloud-animation .cloud-wrap .cloud2 {
@@ -305,10 +309,10 @@ header #home .ham-icon span:nth-child(2) {
 }
 header #home .mobile-nav-wrap {
   position: fixed;
-  height: 100%;
-  width: 0;
   top: 0;
   left: 0;
+  width: 0;
+  height: 100%;
   overflow-x: hidden;
   transition: 0.5s;
   z-index: 99;
@@ -321,14 +325,14 @@ header #home .mobile-nav-wrap .closebtn {
   cursor: pointer;
 }
 header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .closebtn::after {
+  content: "";
   display: inline-block;
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
-  content: "";
   width: 8px;
   height: 38px;
+  transform: translate(-50%, -50%);
   border-radius: 4px;
   background-color: #fcfcfc;
   cursor: pointer;
@@ -340,29 +344,28 @@ header #home .mobile-nav-wrap .closebtn::after {
   transform: rotate(-45deg);
 }
 header #home .mobile-nav-wrap .mobile-nav {
-  position: relative;
+  position: absolute;
   top: 50%;
-  transform: translateY(-60%);
+  transform: translateY(-50%);
   width: 100%;
   text-align: center;
-  margin-top: 30px;
   font-family: mckloud-stroke;
 }
 header #home .mobile-nav-wrap .mobile-nav li a {
-  font-size: 52px;
+  font-size: 9.2vw;
   letter-spacing: 8px;
   line-height: 100px;
   color: #fcfcfc;
 }
 header #home .mobile-nav-wrap .mobile-nav li a:hover {
   color: #fcfcfc;
-  font-size: 56px;
+  font-size: 9.8vw;
   font-family: mckloud-full;
   transition: 0.8s;
 }
 header #home .mobile-nav-wrap .mobile-nav li a .active {
   color: #fcfcfc;
-  font-size: 56px;
+  font-size: 9.8vw;
   font-family: mckloud-full;
 }
 header #home .intro-flip-wrap {
