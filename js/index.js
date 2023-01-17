@@ -5,7 +5,7 @@ $(function() {
     
     gnbA.click(function() {
         const target = $(this).attr('href');
-        $('html').animate({'scrollTop' : $(target).offset().top});
+        $('html').animate({'scrollTop' : $(target).offset().top - 100});
     })
 
     // 모바일 메뉴 클릭하면 메뉴 창 닫힘
@@ -17,18 +17,11 @@ $(function() {
 
     m_gnbA.click(function() {
         const target = $(this).attr('href');
-        $('html').animate({'scrollTop' : $(target).offset().top});
+        $('html').animate({'scrollTop' : $(target).offset().top - 50});
 
-        //*수정하기(여기부터)
-        if(m_gnbA.target) {
-            m_gnbA.removeClass('active');
-            $(this).addClass('active');
-        } else {
-            $(this).addClass('active');
-        }
-        m_gnbA.target = this;
-        return false;
-        //*수정하기(여기까지)
+        // 모바일 메뉴 클릭하면 액티브 상태 적용
+        m_gnbA.removeClass('active');
+        $(this).addClass('active'); 
     });
 
     $(window).resize(function() {
@@ -80,18 +73,13 @@ window.onload = function() {
 
     // top 버튼 스크롤 애니메이션
     const $topbtn = document.querySelector('.topbtn');
-    $topbtn.onclick = (e) => {
+    $topbtn.onclick = e => {
         e.preventDefault();
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         })
     }
-
-
-
-
-
 } //window.onload
 
 // 모바일 햄버거 메뉴 열기, 닫기
@@ -104,7 +92,7 @@ function closeMobileNav() {
     document.getElementById("mobileNav").animate({opacity: "0"}, 600);
 }
 
-// 스크롤 내리면 pc gnb fix되는 기능
+// pc화면 상단에 gnb fix되는 기능
 function fixedMenu() {
     let curPos = document.documentElement.scrollTop;
     // console.log(curPos);
@@ -137,5 +125,5 @@ document.addEventListener('scroll', fixedMenu);
 // 스크롤 내릴 때 내용 보이기
 window.addEventListener('scroll', function() {
     let scPos = window.scrollY;
-    console.log(scPos);
+    // console.log(scPos);
 })

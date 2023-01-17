@@ -128,10 +128,6 @@ footer {
   }
 }
 
-.hideme {
-  opacity: 0;
-}
-
 h3 {
   display: inline-block;
   position: relative;
@@ -248,7 +244,7 @@ header #home .header-bg .cloud-animation .cloud-wrap .cloud1 {
 }
 @media screen and (min-width: 768px) {
   header #home .header-bg .cloud-animation .cloud-wrap .cloud1 {
-    top: -12%;
+    top: -20%;
   }
 }
 header #home .header-bg .cloud-animation .cloud-wrap .cloud2 {
@@ -313,10 +309,10 @@ header #home .ham-icon span:nth-child(2) {
 }
 header #home .mobile-nav-wrap {
   position: fixed;
+  height: 100%;
+  width: 0;
   top: 0;
   left: 0;
-  width: 0;
-  height: 100%;
   overflow-x: hidden;
   transition: 0.5s;
   z-index: 99;
@@ -329,14 +325,14 @@ header #home .mobile-nav-wrap .closebtn {
   cursor: pointer;
 }
 header #home .mobile-nav-wrap .closebtn::before, header #home .mobile-nav-wrap .closebtn::after {
-  content: "";
   display: inline-block;
   position: absolute;
   top: 0;
   left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
   width: 8px;
   height: 38px;
-  transform: translate(-50%, -50%);
   border-radius: 4px;
   background-color: #fcfcfc;
   cursor: pointer;
@@ -348,28 +344,29 @@ header #home .mobile-nav-wrap .closebtn::after {
   transform: rotate(-45deg);
 }
 header #home .mobile-nav-wrap .mobile-nav {
-  position: absolute;
+  position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   width: 100%;
   text-align: center;
+  margin-top: 30px;
   font-family: mckloud-stroke;
 }
 header #home .mobile-nav-wrap .mobile-nav li a {
-  font-size: 9.2vw;
+  font-size: 40px;
   letter-spacing: 8px;
   line-height: 100px;
   color: #fcfcfc;
 }
 header #home .mobile-nav-wrap .mobile-nav li a:hover {
   color: #fcfcfc;
-  font-size: 9.8vw;
+  font-size: 50px;
   font-family: mckloud-full;
-  transition: 0.8s;
+  transition: 0.6s;
 }
-header #home .mobile-nav-wrap .mobile-nav li a .active {
+header #home .mobile-nav-wrap .mobile-nav li a.active {
   color: #fcfcfc;
-  font-size: 9.8vw;
+  font-size: 50px;
   font-family: mckloud-full;
 }
 header #home .intro-flip-wrap {
@@ -580,6 +577,7 @@ main #skill .skill-bg .skill-info .info-box {
   margin-bottom: 24px;
   border-radius: 20px;
   font-size: 16px;
+  font-weight: 600;
   background-color: rgba(252, 252, 252, 0.8);
 }
 @media screen and (min-width: 768px) {
@@ -627,12 +625,13 @@ main #skill .skill-bg .skill-info .info-box .flexbox .skill-des {
   font-size: 16px;
 }
 main #skill .skill-bg .skill-info .info-box .flexbox .skill-des .percentage {
+  position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
   font-size: 60px;
   font-weight: 800;
-  color: rgb(221, 239, 196);
-  background-color: #0065f4;
+  color: rgba(51, 51, 51, 0.1);
 }
 main #skill .skill-bg .skill-info .info-box .flexbox .skill-des:div:last-child {
   position: relative;
@@ -660,59 +659,11 @@ main #skill .skill-circle .circle {
   font-weight: 600;
   color: #eee;
   line-height: 60px;
-  transform: rotate(90deg);
+  offset-rotate: 0deg;
 }
 main #skill .skill-circle .circle:hover {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
-}
-main #skill .skill-circle .cir-bootstrap {
-  top: -920px;
-  left: 0;
-  background-color: #7952b3;
-  -webkit-animation: trackPath 20s linear infinite;
-          animation: trackPath 20s linear infinite;
-  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
-}
-main #skill .skill-circle .cir-photoshop {
-  top: -940px;
-  left: 0;
-  background-color: #31a8ff;
-  -webkit-animation: trackPath 20s 500ms linear infinite;
-          animation: trackPath 20s 500ms linear infinite;
-  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
-}
-main #skill .skill-circle .cir-illust {
-  top: -900px;
-  left: -40px;
-  background-color: #ff9a00;
-  -webkit-animation: trackPath 20s 1000ms linear infinite;
-          animation: trackPath 20s 1000ms linear infinite;
-  offset-path: path("M1060,440S1096.68,156.74,734.88,132,238.5,189.56,200.25,339.24s31.85,199.67,90.46,200.62S328.26,551,378.64,593.33,645.47,758,796.25,736.16,1035.09,634.84,1060,440Z");
-}
-main #skill .skill-circle .cir-nodejs {
-  top: -940px;
-  left: 0;
-  background-color: #3f873f;
-  -webkit-animation: trackPath 20s 1500ms linear infinite;
-          animation: trackPath 20s 1500ms linear infinite;
-  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
-}
-main #skill .skill-circle .cir-git {
-  top: -900px;
-  left: 10px;
-  background-color: #ee2330;
-  -webkit-animation: trackPath 20s 2000ms linear infinite;
-          animation: trackPath 20s 2000ms linear infinite;
-  offset-path: path("M920.40,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,866,558.12,920.40,435.1Z");
-}
-main #skill .skill-circle .cir-react {
-  top: -880px;
-  left: 0;
-  background-color: #6ecff1;
-  -webkit-animation: trackPath 20s 2500ms linear infinite;
-          animation: trackPath 20s 2500ms linear infinite;
-  offset-path: path("M920.40,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,866,558.12,920.40,435.1Z");
 }
 main #skill .skill-circle .cir-html {
   top: -920px;
@@ -754,6 +705,54 @@ main #skill .skill-circle .cir-javascript {
   -webkit-animation: trackPath 20s 5000ms linear infinite;
           animation: trackPath 20s 5000ms linear infinite;
   offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
+}
+main #skill .skill-circle .cir-react {
+  top: -880px;
+  left: 0;
+  background-color: #6ecff1;
+  -webkit-animation: trackPath 20s 2500ms linear infinite;
+          animation: trackPath 20s 2500ms linear infinite;
+  offset-path: path("M920.40,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,866,558.12,920.40,435.1Z");
+}
+main #skill .skill-circle .cir-git {
+  top: -900px;
+  left: 10px;
+  background-color: #ee2330;
+  -webkit-animation: trackPath 20s 2000ms linear infinite;
+          animation: trackPath 20s 2000ms linear infinite;
+  offset-path: path("M920.40,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,866,558.12,920.40,435.1Z");
+}
+main #skill .skill-circle .cir-nodejs {
+  top: -940px;
+  left: 0;
+  background-color: #3f873f;
+  -webkit-animation: trackPath 20s 1500ms linear infinite;
+          animation: trackPath 20s 1500ms linear infinite;
+  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
+}
+main #skill .skill-circle .cir-bootstrap {
+  top: -920px;
+  left: 0;
+  background-color: #7952b3;
+  -webkit-animation: trackPath 20s linear infinite;
+          animation: trackPath 20s linear infinite;
+  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
+}
+main #skill .skill-circle .cir-photoshop {
+  top: -940px;
+  left: 0;
+  background-color: #31a8ff;
+  -webkit-animation: trackPath 20s 500ms linear infinite;
+          animation: trackPath 20s 500ms linear infinite;
+  offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
+}
+main #skill .skill-circle .cir-illust {
+  top: -900px;
+  left: -40px;
+  background-color: #ff9a00;
+  -webkit-animation: trackPath 20s 1000ms linear infinite;
+          animation: trackPath 20s 1000ms linear infinite;
+  offset-path: path("M1060,440S1096.68,156.74,734.88,132,238.5,189.56,200.25,339.24s31.85,199.67,90.46,200.62S328.26,551,378.64,593.33,645.47,758,796.25,736.16,1035.09,634.84,1060,440Z");
 }
 main #portfolio {
   text-align: center;
