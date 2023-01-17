@@ -37,7 +37,7 @@ $(function() {
         } else {
             $(".info-box").show();
         }
-    });
+    }).resize();
 
     // skill-circle에 마우스오버하면 info-box 나타나는 이벤트
     $(".skill-circle div").on({
@@ -50,61 +50,6 @@ $(function() {
             $("#skill .skill-info > div").eq(idx).stop().fadeOut(400);
         }
     });
-
-
-    // ***************8 스크롤 내용 보이기 **********수정하기-여기부터
-    // 스크롤 내릴 때 내용 보이기
-    // let scPosition = window.scrollY;
-    // console.log(scPosition);
-    // let curPos = $(window).scrollTop();
-    // let aboutPos =  $('#about').offset().top;
-    // let skillPos =  $('#skill').offset().top;
-    // let portfolPos =  $('#portfolio').offset().top;
-
-    // // console.log(aboutPos);
-    // console.log(curPos);
-
-    // $('#about, #skill, #portfolio').hide();
-
-    // $(window).scroll(function() {
-    //     console.log(curPos);
-    //     if(curPos > aboutPos) {
-    //         $('#about').fadeIn(1000);
-    //     }       
-    // });
-
-
-
-    // 스크롤 내용 보이기
-    // $(window).scroll( function(){
-    //     $('.hideme').each(function(i){
-    //         let bottom_of_object = $(this).offset().top + $(this).outerHeight();
-    //         let bottom_of_window = $(window).scrollTop() + $(window).height();
-    //         if( bottom_of_window > bottom_of_object/2 ){
-    //             $(this).animate({'opacity':'1'}, 1000);
-    //         }
-    //     }); 
-    // });
-
-    $(window).scroll( function(){
-        $('section').each(function(i){
-            let bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            let bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            // 점검용
-            console.log(`오브젝트: ${bottom_of_object}` );
-            console.log(`윈도우: ${bottom_of_window}` );
-
-            if( bottom_of_window > bottom_of_object/2 ){
-                $(this).animate({'opacity':'1'}, 1000);
-            }
-        }); 
-    });
-    
-    // ***************8 스크롤 내용 보이기 **********수정하기-여기까지
-
-
-
 }); 
 
 // 자바스크립트
@@ -142,6 +87,7 @@ window.onload = function() {
             behavior: "smooth"
         })
     }
+
 
 
 
@@ -187,3 +133,9 @@ document.addEventListener('scroll', fixedMenu);
 // section #about me-emoticon 클릭시 rotate ****미완성****
 
 
+
+// 스크롤 내릴 때 내용 보이기
+window.addEventListener('scroll', function() {
+    let scPos = window.scrollY;
+    console.log(scPos);
+})

@@ -47,10 +47,6 @@
   }
 }
 
-.hideme {
-  opacity: 0;
-}
-
 h3 { // 섹션 타이틀 (공통소스)
   display: inline-block;
   position: relative;
@@ -98,7 +94,6 @@ body {
     offset-distance: 100%;
   }
 }
-
 
 
 
@@ -167,7 +162,7 @@ header {
             animation: cloudLoop 20s infinite linear;
 
             @include responsive(tablet-screens) {
-              top: -12%;
+              top: -20%;
             }
           }
 
@@ -262,9 +257,10 @@ header {
 
     .mobile-nav-wrap {
       position: fixed;
-      top: 0; left: 0;
-      width: 0;
       height: 100%;
+      width: 0;
+      top: 0;
+      left: 0;
       overflow-x: hidden;
       transition: 0.5s;
       z-index: 99;
@@ -277,13 +273,13 @@ header {
 
         &::before,
         &::after {
-          content: '';
           display: inline-block;
           position: absolute;
           top: 0; left: 50%;
+          transform: translate(-50%, -50%);
+          content: '';
           width: 8px;
           height: 38px;
-          transform: translate(-50%, -50%);
           border-radius: 4px;
           background-color: $body-bg;
           cursor: pointer;
@@ -299,30 +295,31 @@ header {
       } // close-btn
 
       .mobile-nav {
-        position: absolute;
+        position: relative;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-60%);
         width: 100%;
         text-align: center;
+        margin-top: 30px;
         font-family: mckloud-stroke;
 
         li {
           a {
-            font-size: 9.2vw;
+            font-size: 52px;
             letter-spacing: 8px;
             line-height: 100px;
             color: $body-bg;
 
             &:hover {
               color: $body-bg;
-              font-size: 9.8vw;
+              font-size: 56px;
               font-family: mckloud-full;
               transition: 0.8s;
             }
 
             .active {
               color: $body-bg;
-              font-size: 9.8vw;
+              font-size: 56px;
               font-family: mckloud-full;
             }
           } // a
@@ -433,10 +430,12 @@ main {
 
             .front {
               transform:rotateY(0deg);
+
             }
 
             .back {
               transform:rotateY(180deg);
+              
             }
           } // flip
         } // me-emoticon
