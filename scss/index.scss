@@ -71,10 +71,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  z-index: -99;
-}
-
 @keyframes cloudLoop {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -94,7 +90,6 @@ body {
     offset-distance: 100%;
   }
 }
-
 
 
 /* ==================== header ==================== */
@@ -380,6 +375,11 @@ header {
 
 
 /* ==================== main ==================== */
+section {
+  &:nth-child(1) {
+    opacity: 0;
+  }
+}
 
 main {
   margin: 200px 0;
@@ -496,7 +496,6 @@ main {
     } // about-work
   } // #about
 
-  
 
   #skill {
     position: relative;
@@ -540,14 +539,6 @@ main {
         img {
           width: 900px;
         }
-
-        // svg {
-        //   position: absolute;
-        //   top: 168px; left: 0;
-        //   // width: 100%;
-        //   // height: 60%;
-        //   background-color: rgba(252, 252, 252, 0.6);
-        // }
       } // track
 
       .skill-info {
@@ -578,7 +569,6 @@ main {
           margin-bottom: 24px;
           border-radius: 20px;
           font-size: 16px;
-          font-weight: 600;
           background-color: rgba(252, 252, 252, 0.8);
   
           @include responsive (tablet-screens) {
@@ -635,12 +625,6 @@ main {
                 font-size: 60px;
                 font-weight: 800;
                 color: rgba(51, 51, 51, .1);
-                // z-index: 0;
-              }
-
-              &:div:last-child {
-                position: relative;
-                // z-index: 2;
               }
             }
           } // flexbox
