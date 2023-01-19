@@ -279,7 +279,6 @@ header #home nav #gnb li a {
 }
 header #home nav #gnb li a:hover {
   font-weight: 600;
-  color: #ddefc4;
 }
 header #home nav .menu_top {
   border-bottom: 1px solid rgba(119, 173, 223, 0.8);
@@ -412,13 +411,16 @@ header #home .intro-flip-wrap #textFlip .text-wrap .next {
 }
 
 /* ==================== main ==================== */
-section:nth-child(1) {
-  opacity: 0;
-}
-
 main {
   margin: 200px 0;
   line-height: 1.5em;
+}
+main .hide {
+  opacity: 0;
+}
+main .show {
+  opacity: 1;
+  transition: 1s;
 }
 main #about {
   margin-bottom: 200px;
@@ -436,30 +438,6 @@ main #about .about-me .flexbox .me-emoticon {
   main #about .about-me .flexbox .me-emoticon {
     width: 380px;
   }
-}
-main #about .about-me .flexbox .me-emoticon img {
-  cursor: pointer;
-}
-main #about .about-me .flexbox .me-emoticon .me-circle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 222px;
-  height: 222px;
-  padding: 70px 0;
-  border-radius: 50%;
-  font-size: 16px;
-  cursor: pointer;
-  background: #77addf;
-  transform-style: preserve-3d;
-  visibility: hidden;
-}
-main #about .about-me .flexbox .me-emoticon .flip .front {
-  transform: rotateY(0deg);
-}
-main #about .about-me .flexbox .me-emoticon .flip .back {
-  transform: rotateY(180deg);
 }
 main #about .about-me .flexbox .me-introduce {
   margin-bottom: 160px;

@@ -97,7 +97,6 @@ body {
 header {
   position: relative;
   width: 100vw;
-  // background-color: aquamarine;
 
   #home {
     .logo {
@@ -128,12 +127,10 @@ header {
         
         .cloud-wrap {
           display: flex;
-          // width: 2240px; // 280px * 8개
           background-color: #ff9a00;
 
           & > div:first-child {
             width: 100vw;
-            // background-color:#0065f4;
           }
           
           .cloud {
@@ -141,11 +138,8 @@ header {
             width: 100vw;
 
             margin-right: 20px;
-            // background-color: #cc6699;
 
             img {
-              // position: absolute;
-              // right: 0;
               max-width: 24vw;
               object-fit: cover;
             }
@@ -172,25 +166,7 @@ header {
             left: 50%;
             animation: cloudLoop 22s infinite linear;
           }
-
-          // .first {
-          //   left: -100%;
-          //   background-color: #0065f4;
-          //   transition: 3s;
-          // }
-
-          // .second {
-          //   left: 0;
-          //   background-color: yellow;
-          //   transition: 3s;
-          // }
-
-          // .last {
-          //   left: 100%;
-          //   background-color: #cc6699;
-          //   transition: 3s;
-          // }
-        } // cloud-wrap
+        }
       } // cloud-animation
     } // header-bg
 
@@ -200,7 +176,6 @@ header {
       transform: translateX(-50%);
       width: 100%;
       z-index: 99;
-      // background-color: #cc6699;
       
       #gnb {
         display: flex;
@@ -219,7 +194,6 @@ header {
 
           a:hover {
             font-weight: 600;
-            color: $color-sub;
           }
         } // li
       } // gnb
@@ -227,7 +201,6 @@ header {
       .menu_top {
         border-bottom: 1px solid  rgba(119, 173, 223, .8);
         backdrop-filter: blur(3px);
-        // background-color: rgba(119, 173, 223, .8);
         transition: 1s;
       }
     } // nav
@@ -375,15 +348,24 @@ header {
 
 
 /* ==================== main ==================== */
-section {
-  &:nth-child(1) {
-    opacity: 0;
-  }
-}
+// section {
+//   &:nth-child(1) {
+//     opacity: 0;
+//   }
+// }
 
 main {
   margin: 200px 0;
   line-height: 1.5em;
+
+  .hide {
+    opacity: 0;
+  }
+
+  .show {
+    opacity: 1;
+    transition: 1s;
+  }
 
   #about {
     margin-bottom: $section-end;
@@ -402,42 +384,6 @@ main {
           @include responsive(desktop-screens) {
             width: 380px;
           }
-
-          img {
-            cursor: pointer;
-          }
-
-          .me-circle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 222px;
-            height: 222px;
-            padding: 70px 0;
-            border-radius: 50%;
-            font-size: 16px;
-            cursor: pointer;
-            background: $color-main;
-
-            transform-style: preserve-3d;
-            visibility: hidden;
-            // transition: all 1s;
-          }
-
-          // ***************flip미완성**********************
-          .flip {
-
-            .front {
-              transform:rotateY(0deg);
-
-            }
-
-            .back {
-              transform:rotateY(180deg);
-              
-            }
-          } // flip
         } // me-emoticon
   
         .me-introduce {
@@ -481,7 +427,6 @@ main {
           @include responsive(desktop-screens) {
             width: 680px;
             text-align: left;
-            // background-color: yellow;
           }
   
           .about-work1 {
@@ -513,7 +458,6 @@ main {
 
       .grass {
         position: relative;
-        // width: 100%;
 
         img {
           position: absolute;
@@ -545,7 +489,6 @@ main {
         position: relative;
         padding: 80px 4%;
         border-radius: 20px;
-        // background-color: $color-sub;
   
         &::after {
           content: '';
@@ -779,7 +722,6 @@ main {
           @include responsive(tablet-screens) {
             text-align: unset;
             width: min(80%, 400px);
-            // background-color: #cc6699;
           }
 
           & > div {
@@ -863,9 +805,6 @@ main {
       } // right
     } // responsive - left&right 레이아웃 설정
   } // #portfolio
-
-
-
 } // main
 
 

@@ -43,14 +43,29 @@ $(function () {
       $("#skill .skill-info > div").eq(idx).stop().fadeOut(400);
     }
   });
+
+  // 스크롤 내릴 때 section fadeIn
+  $(window).scroll(function() {
+    $('section').addClass('hide');
+
+    let sectionList = $('main > section');
+
+    winH = window.innerHeight;
+
+    for (let i = 0; i < sectionList.length; i++) {
+      let posFromTop = sectionList[i].getBoundingClientRect().top;
+      if (winH > posFromTop) {
+        sectionList[i].classList.add("show");
+      }
+    }
+  });
 });
 
 // 자바스크립트
 window.onload = function () {
-  // 자동 실행 함수 
+  //autoFlip() 자동 실행
   let autoAnimaton = setInterval(() => {
     autoFlip();
-    // movingCloud();
   }, 1200);
 
   // header 텍스트 키워드 애니메이션
@@ -96,6 +111,7 @@ function closeMobileNav() {
 function fixedMenu() {
   let curPos = document.documentElement.scrollTop;
   // console.log(curPos);
+
   if (curPos > 60) {
     document.getElementById('gnb').classList.add('menu_top');
   } else {
@@ -103,28 +119,3 @@ function fixedMenu() {
   }
 }
 document.addEventListener('scroll', fixedMenu);
-
-
-
-
-
-// section #about me-emoticon 클릭시 rotate ****미완성****
-// let $flip = document.querySelectorAll('.flip');
-// function circleRotate() {
-//     console.log(22);
-// }
-// $flip.addEventListener('click', circleRotate);
-
-
-// const $front = document.getElementsByClassName('front');
-// const $back = document.getElementsByClassName('back');
-// section #about me-emoticon 클릭시 rotate ****미완성****
-
-
-
-// 스크롤 내릴 때 내용 보이기
-window.addEventListener('scroll', function () {
-  let scPos = window.scrollY;
-  
-  
-})
