@@ -50,8 +50,8 @@
 h3 { // 섹션 타이틀 (공통소스)
   display: inline-block;
   position: relative;
-  margin: 0 auto;
   margin-bottom: 100px;
+  text-align: left;
   color: $color-main;
 
   &::after {
@@ -148,17 +148,17 @@ header {
           .cloud1 {
             top: -6%;
             right: 0;
-            animation: cloudLoop 20s infinite linear;
+            animation: cloudLoop 18s infinite linear;
 
             @include responsive(tablet-screens) {
-              top: -20%;
+              top: -16%;
             }
           }
 
           .cloud2 {
             top: 20%;
             left: 80%;
-            animation: cloudLoop 30s infinite linear;
+            animation: cloudLoop 26s infinite linear;
           }
 
           .cloud3 {
@@ -189,7 +189,31 @@ header {
           line-height: 60px;
 
           a {
+            position: relative;
             color: #000;
+
+            &::after {
+              content: '';
+              display: inline-block;
+              position: absolute;
+              left: 0; bottom: 10px;
+              width: 0;
+              height: 6px;
+              border-radius: 4px;
+              background: rgba(246, 209, 95, .5);
+            }
+    
+            &:hover::after {
+              content: '';
+              display: inline-block;
+              position: absolute;
+              left: 0; bottom: 10px;
+              width: 100%;
+              height: 6px;
+              border-radius: 4px;
+              transition: all 1s ease;
+              background: rgba(246, 209, 95, .5);
+            }
           }
 
           a:hover {
