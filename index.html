@@ -16,7 +16,7 @@
     <header>
       <section id="home">
         <h1>하정</h1>
-        <div class="logo">
+        <div class="logo mobile-only">
           <a href="./index.html"><img src="./images/flag.png" alt="logo"></a>
         </div>
 
@@ -38,7 +38,10 @@
           </div>
         </div>
 
-        <nav class="large-only">
+        <nav class="pc-nav large-only">
+          <div class="logo large-only">
+            <a href="./index.html"><img src="./images/flag.png" alt="logo"></a>
+          </div>
           <ul id="gnb"> <!-- large-only -->
             <li><a href="#home" class="selected">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
@@ -54,7 +57,7 @@
             <span class="mobile-only"></span>
           </div>
 
-          <div id="mobileNav" class="mobile-nav-wrap">
+          <nav id="mobileNav" class="mobile-nav-wrap">
             <div class="closebtn" onclick="closeMobileNav()"></div>
             <ul class="mobile-nav">
               <li><a href="#home" class="active">HOME</a></li>
@@ -62,7 +65,7 @@
               <li><a href="#skill">SKILL</a></li>
               <li><a href="#portfolio">PORTFOLIO</a></li>
             </ul>
-          </div>
+          </nav>
         </div> <!-- mobile-only -->
 
         <div class="intro-flip-wrap">

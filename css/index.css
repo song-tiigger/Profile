@@ -255,7 +255,7 @@ header #home .header-bg .cloud-animation .cloud-wrap .cloud3 {
   -webkit-animation: cloudLoop 22s infinite linear;
           animation: cloudLoop 22s infinite linear;
 }
-header #home nav {
+header #home .pc-nav {
   position: fixed;
   top: 0;
   left: 50%;
@@ -263,22 +263,22 @@ header #home nav {
   width: 100%;
   z-index: 99;
 }
-header #home nav #gnb {
+header #home .pc-nav #gnb {
   display: flex;
   justify-content: center;
   height: 60px;
 }
-header #home nav #gnb li {
+header #home .pc-nav #gnb li {
   width: 160px;
   margin-right: 1.2em;
   text-align: center;
   line-height: 60px;
 }
-header #home nav #gnb li a {
+header #home .pc-nav #gnb li a {
   position: relative;
   color: #000;
 }
-header #home nav #gnb li a::after {
+header #home .pc-nav #gnb li a::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -289,7 +289,7 @@ header #home nav #gnb li a::after {
   border-radius: 4px;
   background: rgba(246, 209, 95, 0.5);
 }
-header #home nav #gnb li a:hover::after {
+header #home .pc-nav #gnb li a:hover::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -301,10 +301,10 @@ header #home nav #gnb li a:hover::after {
   transition: all 1s ease;
   background: rgba(246, 209, 95, 0.5);
 }
-header #home nav #gnb li a:hover {
+header #home .pc-nav #gnb li a:hover {
   font-weight: 600;
 }
-header #home nav .menu_top {
+header #home .pc-nav .menu_top {
   border-bottom: 1px solid rgba(119, 173, 223, 0.8);
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
@@ -913,8 +913,8 @@ footer .footer-bg .contact .email:hover::after {
   width: 100%;
   height: 6px;
   border-radius: 4px;
-  transition: all 1s ease;
-  background: rgba(246, 209, 95, 0.5);
+  transition: all 0.6s ease;
+  background: rgba(246, 209, 95, 0.6);
 }
 @media screen and (min-width: 768px) {
   footer .footer-bg .contact .email {
@@ -947,7 +947,7 @@ footer .footer-bg .contact .topbtn {
 }
 footer .footer-bg .contact .topbtn:hover {
   filter: hue-rotate(60deg);
-  transition: 0.4s;
+  transition: all 0.4s;
 }
 footer .copyright {
   width: 100%;
