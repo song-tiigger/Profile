@@ -257,16 +257,17 @@ header #home .header-bg .cloud-animation .cloud-wrap .cloud3 {
 }
 header #home .pc-nav {
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 50%;
+  width: 80%;
+  height: 60px;
+  border-radius: 20px;
   transform: translateX(-50%);
-  width: 100%;
   z-index: 99;
 }
 header #home .pc-nav #gnb {
   display: flex;
   justify-content: center;
-  height: 60px;
 }
 header #home .pc-nav #gnb li {
   width: 160px;
@@ -275,40 +276,42 @@ header #home .pc-nav #gnb li {
   line-height: 60px;
 }
 header #home .pc-nav #gnb li a {
+  display: inline-block;
   position: relative;
   color: #000;
 }
 header #home .pc-nav #gnb li a::after {
   content: "";
-  display: inline-block;
   position: absolute;
   left: 0;
-  bottom: 10px;
-  width: 0;
-  height: 6px;
+  bottom: 20px;
+  width: 100%;
+  height: 4px;
   border-radius: 4px;
-  background: rgba(246, 209, 95, 0.5);
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 header #home .pc-nav #gnb li a:hover::after {
   content: "";
-  display: inline-block;
   position: absolute;
   left: 0;
-  bottom: 10px;
+  bottom: 16px;
   width: 100%;
-  height: 6px;
+  height: 4px;
   border-radius: 4px;
-  transition: all 1s ease;
-  background: rgba(246, 209, 95, 0.5);
+  opacity: 1;
+  transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.5);
 }
 header #home .pc-nav #gnb li a:hover {
   font-weight: 600;
 }
 header #home .pc-nav .menu_top {
-  border-bottom: 1px solid rgba(119, 173, 223, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
-  transition: 1s;
+  transition: 0.5s;
 }
 header #home .ham-icon {
   position: fixed;
@@ -749,8 +752,8 @@ main #skill .skill-circle .cir-photoshop {
   top: -940px;
   left: 0;
   background-color: #31a8ff;
-  -webkit-animation: trackPath 20s 2000ms linear infinite;
-          animation: trackPath 20s 2000ms linear infinite;
+  -webkit-animation: trackPath 10s 2000ms linear infinite;
+          animation: trackPath 10s 2000ms linear infinite;
   offset-path: path("M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z");
 }
 main #skill .skill-circle .cir-illust {

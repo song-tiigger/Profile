@@ -77,6 +77,7 @@ window.onload = function () {
     current.classList.add('prev');
 
     let next = document.querySelector('.next');
+    
     if (next.nextElementSibling == null) {
       document.querySelector('#textFlip .text-wrap div:first-child').classList.add('next');
     } else {
