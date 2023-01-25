@@ -47,7 +47,7 @@
   }
 }
 
-h3 { // 섹션 타이틀 (공통소스)
+h2 { // 섹션 타이틀 (공통소스)
   display: inline-block;
   position: relative;
   margin-bottom: 100px;
@@ -92,6 +92,27 @@ body {
   }
 }
 
+@keyframes moveLogo {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes blurMe {
+  0% {
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
 
 /* ==================== header ==================== */
 
@@ -105,10 +126,13 @@ header {
       padding: 20px;
       z-index: 98;
 
+
+
       img {
         width: 60px;
         height: 60px;
         cursor: pointer;
+        animation: moveLogo .4s ease-out backwards;
       }
     } // logo
 
@@ -333,6 +357,27 @@ header {
       h2 {
         font-weight: 500;
       }
+
+
+
+
+      span {
+        font-size: $title-font-size-L;
+        letter-spacing: 0.6rem;
+        filter: blur(2px);
+        animation: blurMe 1.4s ease-in-out forwards;
+        opacity: 0;
+      }
+      
+      @for $i from 1 through 13 {
+        span:nth-child(2n + #{$i}) {
+          animation-delay: calc(100ms * #{$i});
+        }
+      }
+
+
+
+
       
       #textFlip {
         position: relative;
@@ -643,39 +688,39 @@ main {
       .cir-html {
         top: -920px; left: 0px;
         background-color: #f16529;
-        animation: trackPath 12s linear infinite;
+        animation: trackPath 10.4s linear infinite;
         offset-path: path('M920.40,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,866,558.12,920.40,435.1Z');
       }
 
       .cir-css {
         top: -920px; left: -30px;
         background-color: #0065f4;
-        animation: trackPath 16s linear infinite;
+        animation: trackPath 14s linear infinite;
         offset-path: path('M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z');
       }
       .cir-sass {
         top: -920px; left: -40px;
         background-color: #cc6699;
-        animation: trackPath 18s 500ms linear infinite;
+        animation: trackPath 16s 500ms linear infinite;
         offset-path: path('M1060,440S1096.68,156.74,734.88,132,238.5,189.56,200.25,339.24s31.85,199.67,90.46,200.62S328.26,551,378.64,593.33,645.47,758,796.25,736.16,1035.09,634.84,1060,440Z');
       }
       .cir-jquery {
         top: -940px; left: 0;
         background-color: #0868ac;
-        animation: trackPath 18s 500ms linear infinite;
+        animation: trackPath 16s 500ms linear infinite;
         offset-path: path('M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z');
       }
       .cir-javascript {
         top: -880px; left: -30px;
         color: #666;
         background-color: #ffdf00;
-        animation: trackPath 12s 1000ms linear infinite;
+        animation: trackPath 10s 1000ms linear infinite;
         offset-path: path('M1001.17,438.72s41.55-246.48-276.6-277.93S288.07,221.1,217.5,352.72s28,175.58,62.84,176.42,86.66,9.8,131,47S645.94,721,778.54,701.76,988.56,612.66,1001.17,438.72Z');
       }
       .cir-react {
         top: -880px; left: 0;
         background-color: #6ecff1;
-        animation: trackPath 14s 1000ms linear infinite;
+        animation: trackPath 11.2s 1000ms linear infinite;
         offset-path: path('M920.40,435.1S1017.07,205.51,717,176.22,305.36,232.4,238.81,355s26.41,163.54,59.26,164.32,81.73,9.13,123.51,43.8S642.87,698,767.92,680.11,866,558.12,920.40,435.1Z');
       }
       .cir-git {
@@ -705,7 +750,7 @@ main {
       .cir-illust {
         top: -900px; left: -40px;
         background-color: #ff9a00;
-        animation: trackPath 22s 2500ms linear infinite;
+        animation: trackPath 18s 2500ms linear infinite;
         offset-path: path('M1060,440S1096.68,156.74,734.88,132,238.5,189.56,200.25,339.24s31.85,199.67,90.46,200.62S328.26,551,378.64,593.33,645.47,758,796.25,736.16,1035.09,634.84,1060,440Z');
       }
     } // skill-circle
@@ -733,6 +778,10 @@ main {
         .pofol-thumbnail {
           position: relative;
           width: 100%;
+
+          @include responsive(tablet-screens) {
+            width: 80%;
+          }
           
           img {
             display: block;
@@ -753,7 +802,7 @@ main {
 
           @include responsive(tablet-screens) {
             text-align: unset;
-            width: min(80%, 400px);
+            width: min(80%, 600px);
           }
 
           & > div {
@@ -929,13 +978,24 @@ footer {
   } // footer-bg
 
   .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100px;
     text-align: center;
     line-height: 100px;
-    vertical-align: center;
-    font-size: 14px;
-    color: #eee;
     background: $color-main;
+
+    p {
+      margin: 0 14px;
+      font-size: 14px;
+      color: #eee;
+    }
+
+    img {
+      width: 38px;
+      height: 38px;
+    }
   }
 } // footer
