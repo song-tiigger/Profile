@@ -50,7 +50,7 @@
 h2 { // 섹션 타이틀 (공통소스)
   display: inline-block;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 160px;
   text-align: left;
   color: $color-main;
   // background-color: #000;
@@ -105,7 +105,7 @@ body {
 
 @keyframes blurMe {
   0% {
-    filter: blur(4px);
+    filter: blur(8px);
     opacity: 0;
   }
   100% {
@@ -126,13 +126,12 @@ header {
       padding: 20px;
       z-index: 98;
 
-
-
       img {
-        width: 60px;
-        height: 60px;
+        width: 48px;
+        height: 48px;
         cursor: pointer;
-        animation: moveLogo .4s ease-out backwards;
+        // animation: moveLogo .4s ease-out backwards;
+        // background-color: #000;
       }
     } // logo
 
@@ -146,13 +145,11 @@ header {
       .cloud-animation {
         width: 100%; 
         margin-bottom: 20px;
-        background-color: pink;
         z-index: 0;
         object-fit: cover;
         
         .cloud-wrap {
           display: flex;
-          background-color: #ff9a00;
 
           & > div:first-child {
             width: 100vw;
@@ -240,6 +237,18 @@ header {
               opacity: 1;
               transition: all .4s ease;
               background: rgba(0, 0, 0, .5);
+            }
+
+            &.active_pc {
+              &::after {
+                content: '';
+                position: absolute;
+                left: 0; bottom: 16px;
+                width: 100%;
+                height: 4px;
+                border-radius: 4px;
+                background: rgba(0, 0, 0, .5);
+              }
             }
           }
 
@@ -363,8 +372,8 @@ header {
 
       span {
         font-size: $title-font-size-L;
-        letter-spacing: 0.6rem;
-        filter: blur(2px);
+        letter-spacing: 0.4rem;
+        filter: blur(4px);
         animation: blurMe 1.4s ease-in-out forwards;
         opacity: 0;
       }
@@ -376,16 +385,15 @@ header {
       }
 
 
-
-
-      
       #textFlip {
         position: relative;
         width: 200px;
         height: calc($strong-text-M + 8px);
-        margin: 20px auto;
+        margin: 48px auto;
         font-weight: 600;
         font-size: $strong-text-M;
+        opacity: 0;
+        animation: blurMe 1s 2s forwards;
 
         .text-wrap {
           position: relative;
@@ -449,16 +457,23 @@ main {
           margin-bottom: 40px;
   
           @include responsive(desktop-screens) {
+            left: -200px;
             width: 380px;
+            opacity: 0;
           }
         } // me-emoticon
   
         .me-introduce {
+          position: relative;
           margin-bottom: 160px;
           
           @include responsive(desktop-screens) {
+            right: -200px;
             width: 680px;
             text-align: left;
+            opacity: 0;
+
+
           }
 
           strong {
@@ -475,25 +490,31 @@ main {
         }
 
         .about-work-title {
+          position: relative;
           text-align: left;
           font-size: $strong-text-L;
           line-height: 2.6rem;
           margin-bottom: 80px;
 
           @include responsive(desktop-screens) {
+            left: -200px;
             width: 380px;
             padding: 0 80px;
             font-size: 36px;
             text-align: right;
+            opacity: 0;
           }
         } // about-work-title
   
         .about-work-content {
+          position: relative;
           text-align: left;
 
           @include responsive(desktop-screens) {
+            right: -200px;
             width: 680px;
             text-align: left;
+            opacity: 0;
           }
   
           .about-work1 {
@@ -760,6 +781,7 @@ main {
   #portfolio {
     text-align: center;
 
+
     // pofol-box 공통소스 시작
     .pofol-box {
       width: 100%;
@@ -855,6 +877,8 @@ main {
 
     @include responsive(tablet-screens) {
       .left {
+        position: relative;
+        right: -600px;
         text-align: left;
 
         .pofol-thumbnail {
@@ -863,6 +887,8 @@ main {
       } // left
 
       .right {
+        position: relative;
+        left: -600px;
         text-align: right;
 
         .pofol-thumbnail {
@@ -988,14 +1014,14 @@ footer {
     background: $color-main;
 
     p {
-      margin: 0 14px;
+      margin: 0 10px;
       font-size: 14px;
       color: #eee;
     }
 
     img {
-      width: 38px;
-      height: 38px;
+      width: 28px;
+      height: 28px;
     }
   }
 } // footer

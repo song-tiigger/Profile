@@ -131,7 +131,7 @@ footer {
 h2 {
   display: inline-block;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 160px;
   text-align: left;
   color: #77addf;
 }
@@ -203,7 +203,7 @@ body {
 }
 @-webkit-keyframes blurMe {
   0% {
-    filter: blur(4px);
+    filter: blur(8px);
     opacity: 0;
   }
   100% {
@@ -213,7 +213,7 @@ body {
 }
 @keyframes blurMe {
   0% {
-    filter: blur(4px);
+    filter: blur(8px);
     opacity: 0;
   }
   100% {
@@ -232,11 +232,9 @@ header #home .logo {
   z-index: 98;
 }
 header #home .logo img {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
-  -webkit-animation: moveLogo 0.4s ease-out backwards;
-          animation: moveLogo 0.4s ease-out backwards;
 }
 header #home .header-bg {
   position: relative;
@@ -248,14 +246,12 @@ header #home .header-bg {
 header #home .header-bg .cloud-animation {
   width: 100%;
   margin-bottom: 20px;
-  background-color: pink;
   z-index: 0;
   -o-object-fit: cover;
      object-fit: cover;
 }
 header #home .header-bg .cloud-animation .cloud-wrap {
   display: flex;
-  background-color: #ff9a00;
 }
 header #home .header-bg .cloud-animation .cloud-wrap > div:first-child {
   width: 100vw;
@@ -339,6 +335,16 @@ header #home .pc-nav #gnb li a:hover::after {
   border-radius: 4px;
   opacity: 1;
   transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+header #home .pc-nav #gnb li a.active_pc::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 16px;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
   background: rgba(0, 0, 0, 0.5);
 }
 header #home .pc-nav #gnb li a:hover {
@@ -442,8 +448,8 @@ header #home .intro-flip-wrap h2 {
 }
 header #home .intro-flip-wrap span {
   font-size: 2.2rem;
-  letter-spacing: 0.6rem;
-  filter: blur(2px);
+  letter-spacing: 0.4rem;
+  filter: blur(4px);
   -webkit-animation: blurMe 1.4s ease-in-out forwards;
           animation: blurMe 1.4s ease-in-out forwards;
   opacity: 0;
@@ -504,9 +510,12 @@ header #home .intro-flip-wrap #textFlip {
   position: relative;
   width: 200px;
   height: calc(1.4rem + 8px);
-  margin: 20px auto;
+  margin: 48px auto;
   font-weight: 600;
   font-size: 1.4rem;
+  opacity: 0;
+  -webkit-animation: blurMe 1s 2s forwards;
+          animation: blurMe 1s 2s forwards;
 }
 header #home .intro-flip-wrap #textFlip .text-wrap {
   position: relative;
@@ -561,16 +570,21 @@ main #about .about-me .flexbox .me-emoticon {
 }
 @media screen and (min-width: 1200px) {
   main #about .about-me .flexbox .me-emoticon {
+    left: -200px;
     width: 380px;
+    opacity: 0;
   }
 }
 main #about .about-me .flexbox .me-introduce {
+  position: relative;
   margin-bottom: 160px;
 }
 @media screen and (min-width: 1200px) {
   main #about .about-me .flexbox .me-introduce {
+    right: -200px;
     width: 680px;
     text-align: left;
+    opacity: 0;
   }
 }
 main #about .about-me .flexbox .me-introduce strong {
@@ -581,6 +595,7 @@ main #about .about-work .flexbox {
   justify-content: space-between;
 }
 main #about .about-work .flexbox .about-work-title {
+  position: relative;
   text-align: left;
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -588,19 +603,24 @@ main #about .about-work .flexbox .about-work-title {
 }
 @media screen and (min-width: 1200px) {
   main #about .about-work .flexbox .about-work-title {
+    left: -200px;
     width: 380px;
     padding: 0 80px;
     font-size: 36px;
     text-align: right;
+    opacity: 0;
   }
 }
 main #about .about-work .flexbox .about-work-content {
+  position: relative;
   text-align: left;
 }
 @media screen and (min-width: 1200px) {
   main #about .about-work .flexbox .about-work-content {
+    right: -200px;
     width: 680px;
     text-align: left;
+    opacity: 0;
   }
 }
 main #about .about-work .flexbox .about-work-content .about-work1 {
@@ -949,12 +969,16 @@ main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button a {
 }
 @media screen and (min-width: 768px) {
   main #portfolio .left {
+    position: relative;
+    right: -600px;
     text-align: left;
   }
   main #portfolio .left .pofol-thumbnail {
     margin-right: 40px;
   }
   main #portfolio .right {
+    position: relative;
+    left: -600px;
     text-align: right;
   }
   main #portfolio .right .pofol-thumbnail {
@@ -1066,11 +1090,11 @@ footer .copyright {
   background: #77addf;
 }
 footer .copyright p {
-  margin: 0 14px;
+  margin: 0 10px;
   font-size: 14px;
   color: #eee;
 }
 footer .copyright img {
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
 }/*# sourceMappingURL=index.css.map */

@@ -6,20 +6,25 @@ $(function () {
   gnbA.click(function () {
     const target = $(this).attr('href');
     $('html').animate({ 'scrollTop': $(target).offset().top - 100 });
+    
+    gnbA.removeClass('active_pc');
+    $(this).addClass('active_pc');
   })
 
-  // 모바일 메뉴 클릭하면 메뉴 창 닫힘
-  $(".mobile-nav > li > a").on("click", closeMobileNav
-  );
 
-  // 모바일 메뉴 클릭하면 스크롤로 이동 
-  const m_gnbA = $('.mobile-nav > li > a');
+
+  // 모바일gnb 클릭 이벤트
+  let m_gnbA = $('.mobile-nav > li > a');
 
   m_gnbA.click(function () {
+    // 모바일 메뉴 클릭하면 메뉴 창 닫힘
+    closeMobileNav();
+
+    // 스크롤 이동 애니메이션 
     const target = $(this).attr('href');
     $('html').animate({ 'scrollTop': $(target).offset().top - 50 });
 
-    // 모바일 메뉴 클릭하면 액티브 상태 적용
+    // 액티브 상태 적용
     m_gnbA.removeClass('active');
     $(this).addClass('active');
   });
@@ -34,36 +39,94 @@ $(function () {
 
   // skill-circle에 마우스오버하면 info-box 나타나는 이벤트
   $(".skill-circle div").on({
-    "mouseover": function () {
+    "mouseover": function() {
       var idx = $(".skill-circle div").index(this);
       $("#skill .skill-info > div").eq(idx).fadeIn(400);
     },
-    "mouseout": function () {
+    "mouseout": function() {
       var idx = $(".skill-circle div").index(this);
       $("#skill .skill-info > div").eq(idx).stop().fadeOut(400);
     }
   });
 
-  // 스크롤 내릴 때 section fadeIn
+  // 스크롤 이벤트
   $(window).scroll(function() {
     $('section').addClass('hide');
+    $('#portfolio .pofol-box').addClass('hide');
 
     let sectionList = $('main > section');
+    let pofolList = $('#portfolio .pofol-box');
 
+    let scrollY = window.scrollY;
+
+    winW = window.innerWidth;
     winH = window.innerHeight;
 
+    // section fadeIn
     for (let i = 0; i < sectionList.length; i++) {
       let posFromTop = sectionList[i].getBoundingClientRect().top;
+
       if (winH > posFromTop) {
         sectionList[i].classList.add("show");
       }
     }
+    
+    // .pofol-box fadeIn
+    for (let j = 0; j < pofolList.length; j++) {
+      let posFromPofolTop = pofolList[j].getBoundingClientRect().top;
+
+      if (winW < 768 && winH > posFromPofolTop * 1.5) {
+        $('#portfolio .pofol-box').addClass('hide');
+
+        pofolList[j].classList.remove("hide");
+        pofolList[j].classList.add("show");
+      }
+
+      // .left와 .right 좌우에서 나타나는 애니메이션
+      if (winW >= 768 && scrollY > 3200 + (500 * j)) {
+        if(j % 2 == 0) {
+          pofolList[j].animate({right: 0, opacity: 1}, 1200);
+
+        } else {
+          pofolList[j].animate({left: 0, opacity: 1}, 1200);
+        }
+      }
+    }
+
+    // 스크롤 내릴 때 좌우에서 내용 나타나는 애니메이션
+    // console.log(scrollY);
+    if(scrollY >= 540) {
+      $('.me-emoticon').animate({left: 0, opacity: 1}, 400);
+      $('.me-introduce').animate({right: 0, opacity: 1}, 400);
+    }
+    if(scrollY >= 900) {
+      $('.about-work-title').animate({left: 0, opacity: 1}, 400);
+      $('.about-work-content').animate({right: 0, opacity: 1}, 400);
+    }
+    //반복문으로 해결 실패 (시작)
+    if(scrollY > 3200) {
+      $('.pofol-box1').animate({right: 0, opacity: 1}, 1200);
+    }
+    if(scrollY > 3700) {
+      $('.pofol-box2').animate({left: 0, opacity: 1}, 1200);
+    }
+    if(scrollY > 4200) {
+      $('.pofol-box3').animate({right: 0, opacity: 1}, 1200);
+    }
+    if(scrollY > 4700) {
+      $('.pofol-box4').animate({left: 0, opacity: 1}, 1200);
+    }
+    if(scrollY > 5200) {
+      $('.pofol-box5').animate({right: 0, opacity: 1}, 1200);
+    }
+    //반복문으로 해결 실패 (끝)
+
   });
 });
 
 // 자바스크립트
 window.onload = function () {
-  //autoFlip() 자동 실행
+  //autoFlip 자동으로 실행하기
   let autoAnimaton = setInterval(() => {
     autoFlip();
   }, 1200);
