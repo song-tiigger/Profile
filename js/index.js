@@ -7,7 +7,11 @@ $(function () {
     const target = $(this).attr('href');
     $('html').animate({ 'scrollTop': $(target).offset().top - 100 });
     
-    gnbA.removeClass('active_pc');
+   
+  })
+
+  $('#gnb > li').click(function() {
+    $('#gnb > li').removeClass('active_pc');
     $(this).addClass('active_pc');
   })
 
@@ -71,7 +75,7 @@ $(function () {
       }
     }
     
-    // .pofol-box fadeIn
+    // .pofol-box fadeIn (모바일)
     for (let j = 0; j < pofolList.length; j++) {
       let posFromPofolTop = pofolList[j].getBoundingClientRect().top;
 
@@ -82,19 +86,19 @@ $(function () {
         pofolList[j].classList.add("show");
       }
 
-      // .left와 .right 좌우에서 나타나는 애니메이션
-      if (winW >= 768 && scrollY > 3200 + (500 * j)) {
-        if(j % 2 == 0) {
-          pofolList[j].animate({right: 0, opacity: 1}, 1200);
+      // .left와 .right 좌우에서 나타나는 애니메이션 (pc)
+      // if (winW >= 768 && scrollY > 3200 + (550 * j)) {
+      //   if(j % 2 == 0) {
+      //     pofolList[j].animate({right: 0, opacity: 1}, 1200);
 
-        } else {
-          pofolList[j].animate({left: 0, opacity: 1}, 1200);
-        }
-      }
+      //   } else {
+      //     pofolList[j].animate({left: 0, opacity: 1}, 1200);
+      //   }
+      // }
     }
 
     // 스크롤 내릴 때 좌우에서 내용 나타나는 애니메이션
-    // console.log(scrollY);
+    console.log(scrollY);
     if(scrollY >= 540) {
       $('.me-emoticon').animate({left: 0, opacity: 1}, 400);
       $('.me-introduce').animate({right: 0, opacity: 1}, 400);
@@ -107,20 +111,19 @@ $(function () {
     if(scrollY > 3200) {
       $('.pofol-box1').animate({right: 0, opacity: 1}, 1200);
     }
-    if(scrollY > 3700) {
+    if(scrollY > 3750) {
       $('.pofol-box2').animate({left: 0, opacity: 1}, 1200);
     }
-    if(scrollY > 4200) {
+    if(scrollY > 4300) {
       $('.pofol-box3').animate({right: 0, opacity: 1}, 1200);
     }
-    if(scrollY > 4700) {
+    if(scrollY > 4850) {
       $('.pofol-box4').animate({left: 0, opacity: 1}, 1200);
     }
-    if(scrollY > 5200) {
+    if(scrollY > 5000) {
       $('.pofol-box5').animate({right: 0, opacity: 1}, 1200);
     }
     //반복문으로 해결 실패 (끝)
-
   });
 });
 
