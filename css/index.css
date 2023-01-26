@@ -942,30 +942,29 @@ main #portfolio .pofol-box .flexbox .pofol-info .pofol-des {
   margin-top: 10px;
   font-size: 16px;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .modal-btn {
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn {
   display: flex;
   margin-top: 20px;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button {
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button {
+  display: block;
+  position: relative;
   width: 128px;
   height: 48px;
   border-radius: 20px;
-  border: none;
+  border: 2px solid #77addf;
   font-size: 16px;
   cursor: pointer;
-  color: #fcfcfc;
-  background-color: #77addf;
+  color: #0868ac;
+  background: none;
+  overflow: hidden;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:first-child {
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:first-child {
   margin-right: 24px;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button:hover {
-  color: #77addf;
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:hover {
+  color: red;
   background-color: #ddefc4;
-  transition: 0.28s;
-}
-main #portfolio .pofol-box .flexbox .pofol-info .modal-btn button a {
-  color: #fcfcfc;
 }
 @media screen and (min-width: 768px) {
   main #portfolio .left {

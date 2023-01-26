@@ -843,33 +843,75 @@ main {
             font-size: 16px;
           }
 
-          .modal-btn {
+          .link-btn {
             display: flex;
             margin-top: 20px;
   
             button {
+              display: block;
+              position: relative;
               width: 128px;
               height: 48px;
               border-radius: 20px;
-              border: none;
+              border: 2px solid $color-main;
               font-size: 16px;
               cursor: pointer;
-              color: $body-bg;
-              background-color: $color-main;
+              // color: $body-bg;
+              color: #0868ac;
+              background: none;
+              overflow: hidden;
 
               &:first-child {
                 margin-right: 24px;
               }
 
               &:hover {
-                color: $color-main;
+                color: red;
                 background-color: $color-sub;
-                transition: 0.28s;
               }
 
-              a {
-                color: $body-bg;
-              }
+              // &,
+              // &::after {
+              //   -webkit-transition: all 0.3s;
+              //   -moz-transition: all 0.3s;
+              //   -o-transition: all 0.3s;
+              //   transition: all 0.3s;
+              // }
+
+
+
+              // &::before,
+              // &::after {
+              //   background: #333;
+              //   content: '';
+              //   position: absolute;
+              //   z-index: -1;
+              // }
+
+              // &::before {
+              //   height: 100%;
+              //   left: 0;
+              //   top: 0;
+              //   width: 100%;
+              // }
+
+              // &::after {
+              //   top: 0; left: 0;
+              //   width: 100%;
+              //   height: 48px;
+              //   transition: 0.3s;
+              //   background-color: $color-main;
+
+              // }
+
+              // &:hover:after {
+              //   height: 0;
+              //   left: 50%;
+              //   top: 50%;
+              //   width: 0;
+              // }
+
+
             } // button
           } // modal-btn
         } // pofol-info
