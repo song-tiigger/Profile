@@ -903,6 +903,8 @@ main #portfolio .pofol-box .flexbox .pofol-thumbnail img {
   display: block;
   width: 100%;
   margin-bottom: 28px;
+  overflow: hidden;
+  border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.29) 0px 10px 20px;
 }
 @media screen and (min-width: 768px) {
