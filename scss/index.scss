@@ -9,7 +9,7 @@
 
   @include responsive(desktop-screens) {
     width: 1200px;
-    padding: 0;
+    padding: 0 10px;
   }
 }
 
@@ -53,7 +53,6 @@ h2 { // 섹션 타이틀 (공통소스)
   margin-bottom: 160px;
   text-align: left;
   color: $color-main;
-  // background-color: #000;
 
   &::after {
     content: '';
@@ -92,17 +91,6 @@ body {
   }
 }
 
-@keyframes moveLogo {
-  0% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(-100%, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-  }
-}
-
 @keyframes blurMe {
   0% {
     filter: blur(8px);
@@ -130,8 +118,6 @@ header {
         width: 48px;
         height: 48px;
         cursor: pointer;
-        // animation: moveLogo .4s ease-out backwards;
-        // background-color: #000;
       }
     } // logo
 
@@ -393,7 +379,7 @@ header {
         margin: 48px auto;
         font-weight: 600;
         font-size: $strong-text-M;
-        opacity: 1;
+        opacity: 0;
         animation: blurMe 1s 2s forwards;
 
         .text-wrap {
@@ -541,16 +527,6 @@ main {
       @include responsive(desktop-screens) {
         width: 100%;
         height: auto;
-      }
-
-      .flower {
-        position: absolute;
-        top: 40px;
-        left: 200px;
-        width: 20px;
-        height: 20px;
-        background-color: pink;
-        border-radius: 50%;
       }
 
       .grass {
