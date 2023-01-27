@@ -1,71 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 @font-face {
-    font-family: Alphasmoke;
-    src: url(../fonts/Alphasmoke-OOX6.ttf) format("truetype");
+  font-family: mckloud-stroke;
+  src: url(../fonts/MCKLW___.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: mckloud-stroke;
-    src: url(../fonts/MCKLW___.ttf) format("truetype");
+  font-family: mckloud-full;
+  src: url(../fonts/MCKLB___.ttf) format("truetype");
 }
-@font-face {
-    font-family: mckloud-full;
-    src: url(../fonts/MCKLB___.ttf) format("truetype");
-}
-@font-face {
-    font-family: mckloud-shadow;
-    src: url(../fonts/MCKLSH__.ttf) format("truetype");
-}
-
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    font: $text-font-size $kor-font;
-    color: $font-color-defalt;
-    background-color: $body-bg;
+  font: $text-font-size $kor-font;
+  color: $font-color-defalt;
+  background-color: $body-bg;
 }
 
 ul,
 ol,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    display: block;
-    text-decoration: none;
-    color: $font-color-defalt;
+  display: block;
+  text-decoration: none;
+  color: $font-color-defalt;
 }
 
 h1 {
-    font-size: 0;
+  font-size: 0;
 }
 
 h2 {
-    font-size: $title-font-size-L;
+  font-size: $title-font-size-L;
 }
 
 h3 {
-    font-size: $title-font-size-M;
+  font-size: $title-font-size-M;
 }
 
 h4 {
-    font-size: $title-font-size-S;
+  font-size: $title-font-size-S;
 }
 
 p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 address {
-    font-style: inherit;
+  font-style: inherit;
 }
 
 header,
@@ -74,5 +65,5 @@ main,
 article,
 section,
 footer {
-    display: block;
+  display: block;
 }

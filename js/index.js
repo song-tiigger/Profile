@@ -6,16 +6,11 @@ $(function () {
   gnbA.click(function () {
     const target = $(this).attr('href');
     $('html').animate({ 'scrollTop': $(target).offset().top - 100 });
-    
-   
-  })
 
-  $('#gnb > li').click(function() {
-    $('#gnb > li').removeClass('active_pc');
+    // 액티브 상태 적용
+    gnbA.removeClass('active_pc');
     $(this).addClass('active_pc');
-  })
-
-
+  });
 
   // 모바일gnb 클릭 이벤트
   let m_gnbA = $('.mobile-nav > li > a');
@@ -33,6 +28,7 @@ $(function () {
     $(this).addClass('active');
   });
 
+  // pc에서 .info-box숨기기
   $(window).resize(function () {
     if (window.innerWidth > 1200) {
       $(".info-box").hide();
@@ -41,7 +37,7 @@ $(function () {
     }
   }).resize();
 
-  // skill-circle에 마우스오버하면 info-box 나타나는 이벤트
+  // pc에서 skill-circle에 마우스오버하면 info-box 나타나는 이벤트
   $(".skill-circle div").on({
     "mouseover": function() {
       var idx = $(".skill-circle div").index(this);
@@ -108,20 +104,22 @@ $(function () {
       $('.about-work-content').animate({right: 0, opacity: 1}, 400);
     }
     //반복문으로 해결 실패 (시작)
-    if(scrollY > 3200) {
-      $('.pofol-box1').animate({right: 0, opacity: 1}, 1200);
-    }
-    if(scrollY > 3750) {
-      $('.pofol-box2').animate({left: 0, opacity: 1}, 1200);
-    }
-    if(scrollY > 4300) {
-      $('.pofol-box3').animate({right: 0, opacity: 1}, 1200);
-    }
-    if(scrollY > 4850) {
-      $('.pofol-box4').animate({left: 0, opacity: 1}, 1200);
-    }
-    if(scrollY > 5000) {
-      $('.pofol-box5').animate({right: 0, opacity: 1}, 1200);
+    if(winW >= 768) {
+      if(scrollY > 3300) {
+        $('.pofol-box1').animate({right: 0, opacity: 1}, 800);
+      }
+      if(scrollY > 3850) {
+        $('.pofol-box2').animate({left: 0, opacity: 1}, 800);
+      }
+      if(scrollY > 4400) {
+        $('.pofol-box3').animate({right: 0, opacity: 1}, 800);
+      }
+      if(scrollY > 4950) {
+        $('.pofol-box4').animate({left: 0, opacity: 1}, 800);
+      }
+      if(scrollY > 5600) {
+        $('.pofol-box5').animate({right: 0, opacity: 1}, 800);
+      }
     }
     //반복문으로 해결 실패 (끝)
   });

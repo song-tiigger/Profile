@@ -158,7 +158,6 @@ header {
           .cloud {
             position: absolute;
             width: 100vw;
-
             margin-right: 20px;
 
             img {
@@ -211,22 +210,10 @@ header {
           text-align: center;
           line-height: 60px;
 
-          
-
           a {
             display: inline-block;
             position: relative;
             color: #000;
-
-            &.active_pc::after {
-              content: '';
-              position: absolute;
-              left: 0; bottom: 16px;
-              width: 100%;
-              height: 4px;
-              border-radius: 4px;
-              background: rgba(0, 0, 0, .5);
-          }
 
             &::after {
               content: '';
@@ -237,25 +224,41 @@ header {
               border-radius: 4px;
               opacity: 0;
               background: rgba(0, 0, 0, .5);
+
+              transition: all .4s ease;
+
             }
-    
+
+            &:hover {
+              font-weight: 600;
+            }
+
             &:hover::after {
+              left: 0; bottom: 16px;
+
+              // content: '';
+              // position: absolute;
+              // width: 100%;
+              // height: 4px;
+              // border-radius: 4px;
+              opacity: 1;
+              // background: rgba(0, 0, 0, .5);
+            }
+
+            &.active_pc::after {
+              display: block;
               content: '';
               position: absolute;
               left: 0; bottom: 16px;
               width: 100%;
               height: 4px;
               border-radius: 4px;
-              opacity: 1;
-              transition: all .4s ease;
               background: rgba(0, 0, 0, .5);
             }
 
-
-          }
-
-          a:hover {
-            font-weight: 600;
+            &.active_pc {
+              font-weight: 600;
+            }
           }
         } // li
       } // gnb
@@ -369,13 +372,10 @@ header {
         font-weight: 500;
       }
 
-
-
-
       span {
         font-size: $title-font-size-L;
         letter-spacing: 0.4rem;
-        filter: blur(4px);
+        filter: blur(8px);
         animation: blurMe 1.4s ease-in-out forwards;
         opacity: 0;
       }
@@ -386,7 +386,6 @@ header {
         }
       }
 
-
       #textFlip {
         position: relative;
         width: 200px;
@@ -394,7 +393,7 @@ header {
         margin: 48px auto;
         font-weight: 600;
         font-size: $strong-text-M;
-        opacity: 0;
+        opacity: 1;
         animation: blurMe 1s 2s forwards;
 
         .text-wrap {
@@ -414,11 +413,11 @@ header {
 
           .prev{
             top: -40px;
-            transition: top 1s cubic-bezier(.15,.17,.41,.95);
+            transition: top 1s ease;
           }
           .current{
             top: 0;
-            transition: top 1s cubic-bezier(.15,.17,.41,.95);
+            transition: top 1s ease;
           }
           .next{
             top: 40px
@@ -441,7 +440,7 @@ main {
 
   .show {
     opacity: 1;
-    transition: 1s;
+    transition: .5s;
   }
 
   #about {
@@ -474,8 +473,6 @@ main {
             width: 680px;
             text-align: left;
             opacity: 0;
-
-
           }
 
           strong {
@@ -847,72 +844,55 @@ main {
             display: flex;
             margin-top: 20px;
   
-            button {
+            button,
+            a {
               display: block;
               position: relative;
               width: 128px;
               height: 48px;
               border-radius: 20px;
-              border: 2px solid $color-main;
-              font-size: 16px;
+              // border: 2px solid $color-main;
+              border: none;
               cursor: pointer;
-              // color: $body-bg;
-              color: #0868ac;
-              background: none;
+              font-size: 16px;
+              color: $body-bg;
+              background-color: $color-main;
               overflow: hidden;
+              z-index: 1;
 
               &:first-child {
                 margin-right: 24px;
               }
 
+              &:after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 0;
+                top: 0; left: 0;
+                z-index: -1;
+                border-radius: 5px;
+                background-color: $color-main;
+                background-image: linear-gradient(315deg, #d9adf0 0%, #c096ea 88%);
+                transition: all 0.3s ease;
+              }
+                
               &:hover {
-                color: red;
-                background-color: $color-sub;
+                color: #fff;
               }
 
-              // &,
-              // &::after {
-              //   -webkit-transition: all 0.3s;
-              //   -moz-transition: all 0.3s;
-              //   -o-transition: all 0.3s;
-              //   transition: all 0.3s;
-              // }
-
-
-
-              // &::before,
-              // &::after {
-              //   background: #333;
-              //   content: '';
-              //   position: absolute;
-              //   z-index: -1;
-              // }
-
-              // &::before {
-              //   height: 100%;
-              //   left: 0;
-              //   top: 0;
-              //   width: 100%;
-              // }
-
-              // &::after {
-              //   top: 0; left: 0;
-              //   width: 100%;
-              //   height: 48px;
-              //   transition: 0.3s;
-              //   background-color: $color-main;
-
-              // }
-
-              // &:hover:after {
-              //   height: 0;
-              //   left: 50%;
-              //   top: 50%;
-              //   width: 0;
-              // }
-
-
+              &:hover:after {
+                top: auto;
+                bottom: 0;
+                height: 100%;
+              }
             } // button
+
+            a {
+              text-align: center;
+              line-height: calc(48px + 2px);
+              // line-height: 48px;
+            }
           } // modal-btn
         } // pofol-info
       } // flexbox
@@ -945,13 +925,8 @@ main {
           text-align: right;
         }
 
-        .modal-btn {
+        .link-btn {
           justify-content: right;
-
-          button {
-            margin-right: 0;
-            margin-left: 24px;
-          }
         }
       } // right
     } // responsive - left&right 레이아웃 설정

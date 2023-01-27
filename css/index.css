@@ -6,20 +6,12 @@
 /* ========== 색상 ========== */
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
 @font-face {
-  font-family: Alphasmoke;
-  src: url(../fonts/Alphasmoke-OOX6.ttf) format("truetype");
-}
-@font-face {
   font-family: mckloud-stroke;
   src: url(../fonts/MCKLW___.ttf) format("truetype");
 }
 @font-face {
   font-family: mckloud-full;
   src: url(../fonts/MCKLB___.ttf) format("truetype");
-}
-@font-face {
-  font-family: mckloud-shadow;
-  src: url(../fonts/MCKLSH__.ttf) format("truetype");
 }
 * {
   margin: 0;
@@ -314,16 +306,6 @@ header #home .pc-nav #gnb li a {
   position: relative;
   color: #000;
 }
-header #home .pc-nav #gnb li a.active_pc::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 16px;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.5);
-}
 header #home .pc-nav #gnb li a::after {
   content: "";
   position: absolute;
@@ -334,8 +316,18 @@ header #home .pc-nav #gnb li a::after {
   border-radius: 4px;
   opacity: 0;
   background: rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+header #home .pc-nav #gnb li a:hover {
+  font-weight: 600;
 }
 header #home .pc-nav #gnb li a:hover::after {
+  left: 0;
+  bottom: 16px;
+  opacity: 1;
+}
+header #home .pc-nav #gnb li a.active_pc::after {
+  display: block;
   content: "";
   position: absolute;
   left: 0;
@@ -343,11 +335,9 @@ header #home .pc-nav #gnb li a:hover::after {
   width: 100%;
   height: 4px;
   border-radius: 4px;
-  opacity: 1;
-  transition: all 0.4s ease;
   background: rgba(0, 0, 0, 0.5);
 }
-header #home .pc-nav #gnb li a:hover {
+header #home .pc-nav #gnb li a.active_pc {
   font-weight: 600;
 }
 header #home .pc-nav .menu_top {
@@ -449,7 +439,7 @@ header #home .intro-flip-wrap h2 {
 header #home .intro-flip-wrap span {
   font-size: 2.2rem;
   letter-spacing: 0.4rem;
-  filter: blur(4px);
+  filter: blur(8px);
   -webkit-animation: blurMe 1.4s ease-in-out forwards;
           animation: blurMe 1.4s ease-in-out forwards;
   opacity: 0;
@@ -513,7 +503,7 @@ header #home .intro-flip-wrap #textFlip {
   margin: 48px auto;
   font-weight: 600;
   font-size: 1.4rem;
-  opacity: 0;
+  opacity: 1;
   -webkit-animation: blurMe 1s 2s forwards;
           animation: blurMe 1s 2s forwards;
 }
@@ -534,11 +524,11 @@ header #home .intro-flip-wrap #textFlip .text-wrap div {
 }
 header #home .intro-flip-wrap #textFlip .text-wrap .prev {
   top: -40px;
-  transition: top 1s cubic-bezier(0.15, 0.17, 0.41, 0.95);
+  transition: top 1s ease;
 }
 header #home .intro-flip-wrap #textFlip .text-wrap .current {
   top: 0;
-  transition: top 1s cubic-bezier(0.15, 0.17, 0.41, 0.95);
+  transition: top 1s ease;
 }
 header #home .intro-flip-wrap #textFlip .text-wrap .next {
   top: 40px;
@@ -554,7 +544,7 @@ main .hide {
 }
 main .show {
   opacity: 1;
-  transition: 1s;
+  transition: 0.5s;
 }
 main #about {
   margin-bottom: 200px;
@@ -946,25 +936,52 @@ main #portfolio .pofol-box .flexbox .pofol-info .link-btn {
   display: flex;
   margin-top: 20px;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .link-btn button {
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button,
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn a {
   display: block;
   position: relative;
   width: 128px;
   height: 48px;
   border-radius: 20px;
-  border: 2px solid #77addf;
-  font-size: 16px;
+  border: none;
   cursor: pointer;
-  color: #0868ac;
-  background: none;
+  font-size: 16px;
+  color: #fcfcfc;
+  background-color: #77addf;
   overflow: hidden;
+  z-index: 1;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:first-child {
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:first-child,
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn a:first-child {
   margin-right: 24px;
 }
-main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:hover {
-  color: red;
-  background-color: #ddefc4;
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:after,
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn a:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: #77addf;
+  background-image: linear-gradient(315deg, #d9adf0 0%, #c096ea 88%);
+  transition: all 0.3s ease;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:hover,
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn a:hover {
+  color: #fff;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:hover:after,
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn a:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+main #portfolio .pofol-box .flexbox .pofol-info .link-btn a {
+  text-align: center;
+  line-height: 50px;
 }
 @media screen and (min-width: 768px) {
   main #portfolio .left {
@@ -988,12 +1005,8 @@ main #portfolio .pofol-box .flexbox .pofol-info .link-btn button:hover {
     order: 1;
     text-align: right;
   }
-  main #portfolio .right .modal-btn {
+  main #portfolio .right .link-btn {
     justify-content: right;
-  }
-  main #portfolio .right .modal-btn button {
-    margin-right: 0;
-    margin-left: 24px;
   }
 }
 
