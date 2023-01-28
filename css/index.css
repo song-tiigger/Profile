@@ -122,6 +122,7 @@ footer {
 
 h2 {
   display: inline-block;
+  text-align: left;
   position: relative;
   margin-bottom: 160px;
   text-align: left;
@@ -270,7 +271,7 @@ header #home .pc-nav {
   top: 20px;
   left: 50%;
   width: 80%;
-  height: 60px;
+  height: 58px;
   border-radius: 20px;
   transform: translateX(-50%);
   z-index: 99;
@@ -283,31 +284,31 @@ header #home .pc-nav #gnb li {
   width: 160px;
   margin-right: 1.2em;
   text-align: center;
-  line-height: 60px;
+  line-height: 58px;
 }
 header #home .pc-nav #gnb li a {
   display: inline-block;
   position: relative;
-  color: #000;
+  color: #333;
 }
 header #home .pc-nav #gnb li a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 20px;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
+  bottom: 14px;
+  width: 0;
+  height: 2px;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(255, 255, 255);
   transition: all 0.4s ease;
 }
 header #home .pc-nav #gnb li a:hover {
   font-weight: 600;
 }
 header #home .pc-nav #gnb li a:hover::after {
+  width: 100%;
   left: 0;
-  bottom: 16px;
+  bottom: 14px;
   opacity: 1;
 }
 header #home .pc-nav #gnb li a.active_pc::after {
@@ -315,20 +316,20 @@ header #home .pc-nav #gnb li a.active_pc::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 16px;
+  bottom: 14px;
   width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.5);
+  height: 2px;
+  background: rgb(255, 255, 255);
+  opacity: 1;
 }
 header #home .pc-nav #gnb li a.active_pc {
   font-weight: 600;
 }
 header #home .pc-nav .menu_top {
-  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.84);
   transition: 0.5s;
 }
 header #home .ham-icon {

@@ -105,19 +105,19 @@ $(function () {
     }
     //반복문으로 해결 실패 (시작)
     if(winW >= 768) {
-      if(scrollY > 3300) {
+      if(scrollY > 3000) {
         $('.pofol-box1').animate({right: 0, opacity: 1}, 800);
       }
-      if(scrollY > 3850) {
+      if(scrollY > 3500) {
         $('.pofol-box2').animate({left: 0, opacity: 1}, 800);
       }
-      if(scrollY > 4400) {
+      if(scrollY > 4000) {
         $('.pofol-box3').animate({right: 0, opacity: 1}, 800);
       }
-      if(scrollY > 4950) {
+      if(scrollY > 4500) {
         $('.pofol-box4').animate({left: 0, opacity: 1}, 800);
       }
-      if(scrollY > 5600) {
+      if(scrollY > 5000) {
         $('.pofol-box5').animate({right: 0, opacity: 1}, 800);
       }
     }
