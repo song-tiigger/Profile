@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@font-face {
+  font-family: mckloud-stroke;
+  src: url(../fonts/MCKLW___.ttf) format("truetype");
+}
+@font-face {
+  font-family: mckloud-full;
+  src: url(../fonts/MCKLB___.ttf) format("truetype");
+}
 * {
   margin: 0;
   padding: 0;
@@ -153,7 +161,7 @@ main .strategy h2 .list_num::after {
   margin-top: -5px;
   width: 100%;
   height: 3px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .strategy .weakness {
   padding-top: 4rem;
@@ -241,50 +249,6 @@ main .strategy .weakness .circle_wrap .line {
 main .strategy .concept {
   margin-top: 7rem;
 }
-main .strategy .concept .circle_wrap {
-  margin-top: 8rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-main .strategy .concept .circle_wrap div {
-  width: 200px;
-  height: 200px;
-  margin: 0 20px;
-  text-align: center;
-  word-break: keep-all;
-}
-main .strategy .concept .circle_wrap div p {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  font-size: calc(2rem + 1vw);
-}
-@media screen and (min-width:768px) {
-  main .strategy .concept .circle_wrap div p {
-    font-size: 2.8rem;
-  }
-}
-main .strategy .concept .circle_wrap div p.p-1 {
-  background-color: #186aa4;
-}
-main .strategy .concept .circle_wrap div p.p-2 {
-  background-color: #73a1c2;
-}
-main .strategy .concept .circle_wrap div p.p-3 {
-  background-color: #d1e4f3;
-}
-main .strategy .concept .circle_wrap div span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-block;
-}
 main .typography {
   margin-top: 20rem;
 }
@@ -299,40 +263,38 @@ main .typography h2 .list_num::after {
   margin-top: -5px;
   width: 100%;
   height: 3px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
-main .typography .img_and_font {
-  padding-top: 6rem;
+main .typography .fonts {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  padding-top: 6rem;
 }
-main .typography .img_and_font .img {
-  width: 50%;
-}
-main .typography .img_and_font .img img {
-  width: 93.3333%;
-}
-main .typography .img_and_font .fonts {
-  width: 40%;
-}
-main .typography .img_and_font .fonts .gray {
+main .typography .fonts .gray {
   font-size: 1.6rem;
   color: gray;
 }
-main .typography .img_and_font .fonts h4 {
+main .typography .fonts h4 {
   font-size: 3.8rem;
 }
-main .typography .img_and_font .fonts p {
+main .typography .fonts .nanum {
+  width: 40%;
+}
+main .typography .fonts .nanum p {
+  font-family: "Nanum Gothic";
   font-size: 2rem;
 }
-main .typography .img_and_font .fonts .font > p:first-of-type {
-  padding-top: 2.4rem;
+main .typography .fonts .mckloud h4 span {
+  font-size: 20px;
 }
-main .typography .img_and_font .fonts .montserrat p {
-  font-size: 2.1rem;
+main .typography .fonts .mckloud p {
+  font-size: 6rem;
 }
-main .typography .img_and_font .fonts .pretendard {
-  margin-top: 6rem;
+main .typography .fonts .mckloud .stroke {
+  font-family: mckloud-stroke;
+}
+main .typography .fonts .mckloud .full {
+  font-family: mckloud-full;
 }
 main .color {
   margin-top: 20rem;
@@ -348,7 +310,7 @@ main .color h2 .list_num::after {
   margin-top: -5px;
   width: 100%;
   height: 3px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .color .main_sub_mobile {
   padding-top: 4rem;
@@ -365,7 +327,7 @@ main .color .main_sub_mobile .main-wrap .main .sq {
   position: relative;
   width: 50%;
   border-radius: 15px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .color .main_sub_mobile .main-wrap .main .sq::after {
   display: block;
@@ -448,7 +410,7 @@ main .grid_system h2 .list_num::after {
   margin-top: -5px;
   width: 100%;
   height: 3px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .grid_system .info_img {
   position: relative;
@@ -463,7 +425,7 @@ main .grid_system .info_img .info {
   padding-left: 2rem;
 }
 main .grid_system .info_img .info h3 {
-  color: #0094d6;
+  color: #77addf;
 }
 main .grid_system .info_img .info p {
   width: 100%;
@@ -498,7 +460,7 @@ main .page_design h2 .list_num::after {
   margin-top: -5px;
   width: 100%;
   height: 3px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .page_design .main_page {
   padding-top: 4rem;
@@ -508,44 +470,13 @@ main .page_design .main_page h3 .deco {
   width: 15px;
   height: 15px;
   vertical-align: top;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .page_design .main_page img {
   margin: 0 auto;
   margin-top: 3.8rem;
   width: 750px;
   box-shadow: -6px -5px 8px 3px rgba(0, 0, 0, 0.18);
-}
-main .page_design .sub_page {
-  padding-top: 10rem;
-}
-main .page_design .sub_page h3 .deco {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  vertical-align: top;
-  background-color: #0094d6;
-}
-main .page_design .sub_page h4 {
-  font-size: 3.4rem;
-}
-main .page_design .sub_page h4::after {
-  display: block;
-  content: "";
-  width: 300px;
-  height: 3px;
-  background-color: #000;
-}
-main .page_design .sub_page img {
-  margin: 0 auto;
-  margin-top: 3.8rem;
-  width: 750px;
-  box-shadow: -6px -5px 8px 3px rgba(0, 0, 0, 0.18);
-}
-main .page_design .sub_page .performance,
-main .page_design .sub_page .cafe,
-main .page_design .sub_page .culture {
-  padding-top: 4rem;
 }
 main .responsive {
   margin-top: 20rem;
@@ -562,11 +493,11 @@ main .responsive h2 .list_num::after {
   margin-top: -5px;
   width: 100%;
   height: 3px;
-  background-color: #0094d6;
+  background-color: #77addf;
 }
 main .responsive img {
   margin: 0 auto;
   margin-top: 3.8rem;
-  width: 800px;
+  width: 1000px;
   height: auto;
-}/*# sourceMappingURL=pf2.css.map */
+}/*# sourceMappingURL=d_guide3.css.map */

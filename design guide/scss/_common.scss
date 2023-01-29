@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-// font-family: 'Pretendard';
-// font-family: 'Nanum Gothic', sans-serif;
-// font-family: 'Montserrat', sans-serif;
-// font-family: 'Lora', serif;
+@font-face {
+  font-family: mckloud-stroke;
+  src: url(../fonts/MCKLW___.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: mckloud-full;
+  src: url(../fonts/MCKLB___.ttf) format("truetype");
+}
 
 * {
   margin: 0;

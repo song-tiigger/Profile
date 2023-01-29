@@ -1,16 +1,13 @@
 // 제이쿼리
 $(function () {
-  // pc 메뉴 스크롤 이동
+  // 메뉴 스크롤 이동 애니메이션 (pc)
   const gnbA = $('#gnb > li > a');
 
   gnbA.click(function () {
     const target = $(this).attr('href');
     $('html').animate({ 'scrollTop': $(target).offset().top - 100 });
-
-    // 액티브 상태 적용
-    // gnbA.removeClass('active_pc');
-    // $(this).addClass('active_pc');
   });
+
 
   // 모바일gnb 클릭 이벤트
   let m_gnbA = $('.mobile-nav > li > a');
@@ -19,7 +16,7 @@ $(function () {
     // 모바일 메뉴 클릭하면 메뉴 창 닫힘
     closeMobileNav();
 
-    // 스크롤 이동 애니메이션 
+    // 메뉴 스크롤 이동 애니메이션 (mobile)
     const target = $(this).attr('href');
     $('html').animate({ 'scrollTop': $(target).offset().top - 50 });
 
@@ -27,6 +24,7 @@ $(function () {
     m_gnbA.removeClass('active');
     $(this).addClass('active');
   });
+
 
   // pc에서 .info-box숨기기
   $(window).resize(function () {
@@ -48,6 +46,7 @@ $(function () {
       $("#skill .skill-info > div").eq(idx).stop().fadeOut(400);
     }
   });
+  
 
   // 스크롤 이벤트
   $(window).scroll(function() {
