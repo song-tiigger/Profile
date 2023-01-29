@@ -8,8 +8,8 @@ $(function () {
     $('html').animate({ 'scrollTop': $(target).offset().top - 100 });
 
     // 액티브 상태 적용
-    gnbA.removeClass('active_pc');
-    $(this).addClass('active_pc');
+    // gnbA.removeClass('active_pc');
+    // $(this).addClass('active_pc');
   });
 
   // 모바일gnb 클릭 이벤트
@@ -57,17 +57,34 @@ $(function () {
     let sectionList = $('main > section');
     let pofolList = $('#portfolio .pofol-box');
 
+    let scroll = $(window).scrollTop();
     let scrollY = window.scrollY;
 
     winW = window.innerWidth;
     winH = window.innerHeight;
 
-    // section fadeIn
-    for (let i = 0; i < sectionList.length; i++) {
+    for(let i = 0; i < sectionList.length; i++) {
       let posFromTop = sectionList[i].getBoundingClientRect().top;
 
-      if (winH > posFromTop) {
-        sectionList[i].classList.add("show");
+      if(winH > posFromTop) {
+        // section fadeIn
+        sectionList[i].classList.add('show');
+      }
+      
+      let posBottom = posFromTop +  $('section').eq(i).outerHeight();
+      let winHeight = $(window).height();
+      let scrollBottom = $('.wrapper').height() - winHeight - 3000;
+  
+      if(scroll >= posFromTop -51 && scroll < posBottom) {
+        gnbA.removeClass('active_pc');
+        gnbA.eq(i).addClass('active_pc');
+
+        m_gnbA.removeClass('active');
+        $(this).addClass('active');
+      }
+      if(scroll >= scrollBottom) {
+        gnbA.eq(2).removeClass('active_pc');
+        gnbA.eq(3).addClass('active_pc');
       }
     }
     
@@ -78,8 +95,8 @@ $(function () {
       if (winW < 768 && winH > posFromPofolTop * 1.5) {
         $('#portfolio .pofol-box').addClass('hide');
 
-        pofolList[j].classList.remove("hide");
-        pofolList[j].classList.add("show");
+        pofolList[j].classList.remove('hide');
+        pofolList[j].classList.add('show');
       }
 
       // .left와 .right 좌우에서 나타나는 애니메이션 (pc)
@@ -91,6 +108,7 @@ $(function () {
       //     pofolList[j].animate({left: 0, opacity: 1}, 1200);
       //   }
       // }
+      // => window resize이용해서 다시 해보면 좋을 듯 
     }
 
     // 스크롤 내릴 때 좌우에서 내용 나타나는 애니메이션
@@ -164,12 +182,12 @@ window.onload = function () {
 
 // 모바일 햄버거 메뉴 열기, 닫기
 function openMobileNav() {
-  document.getElementById("mobileNav").style.width = "100%";
+  document.getElementById('mobileNav').style.width = "100%";
 }
 
 function closeMobileNav() {
-  document.getElementById("mobileNav").style.width = "0";
-  document.getElementById("mobileNav").animate({ opacity: "0" }, 600);
+  document.getElementById('mobileNav').style.width = "0";
+  document.getElementById('mobileNav').animate({ opacity: "0" }, 600);
 }
 
 // pc화면 상단에 gnb fix되는 기능

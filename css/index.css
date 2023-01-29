@@ -289,7 +289,7 @@ header #home .pc-nav #gnb li {
 header #home .pc-nav #gnb li a {
   display: inline-block;
   position: relative;
-  color: #333;
+  color: #000;
 }
 header #home .pc-nav #gnb li a::after {
   content: "";
@@ -299,7 +299,7 @@ header #home .pc-nav #gnb li a::after {
   width: 0;
   height: 2px;
   opacity: 0;
-  background: rgb(255, 255, 255);
+  background: #333;
   transition: all 0.4s ease;
 }
 header #home .pc-nav #gnb li a:hover {
@@ -319,7 +319,7 @@ header #home .pc-nav #gnb li a.active_pc::after {
   bottom: 14px;
   width: 100%;
   height: 2px;
-  background: rgb(255, 255, 255);
+  background: #333;
   opacity: 1;
 }
 header #home .pc-nav #gnb li a.active_pc {
@@ -327,6 +327,7 @@ header #home .pc-nav #gnb li a.active_pc {
 }
 header #home .pc-nav .menu_top {
   border-radius: 20px;
+  border: 1px solid #ccc;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
   background: rgba(255, 255, 255, 0.84);
