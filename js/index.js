@@ -87,6 +87,7 @@ $(function () {
       }
     }
     
+
     // .pofol-box fadeIn (모바일)
     for (let j = 0; j < pofolList.length; j++) {
       let posFromPofolTop = pofolList[j].getBoundingClientRect().top;
@@ -110,6 +111,7 @@ $(function () {
       // => window resize이용해서 다시 해보면 좋을 듯 
     }
 
+  
     // 스크롤 내릴 때 좌우에서 내용 나타나는 애니메이션
     console.log(scrollY);
     if(scrollY >= 540) {
